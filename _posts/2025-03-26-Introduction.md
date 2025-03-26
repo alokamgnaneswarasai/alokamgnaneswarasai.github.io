@@ -24,6 +24,7 @@ title: Introduction to vectors in Linear Algebra
     - [L1 Norm](#l1-norm)
     - [L∞ Norm](#l-norm)
   - [Challenge: Is the Minimum Norm Valid?](#challenge-is-the-minimum-norm-valid)
+
 ## Definition of a Vector
 
 In linear algebra, a **vector** is an element of a vector space. Mathematically, an **n-dimensional vector** is represented as:
