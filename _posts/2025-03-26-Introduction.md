@@ -46,7 +46,7 @@ where $ c_1, c_2, \dots, c_k $ are scalar coefficients.
 
 <!--more-->
 ## Magnitude of a Vector
-
+Before that, lets see the definition of norm. Norm is represented as $$ \|.\| $$
 ### Properties of a Norm
 
 For a vector norm $$ \|\mathbf{v}\| $$, the following properties hold:
@@ -144,7 +144,7 @@ $$
 
 **Exercise**: Verify that $$ \|\mathbf{v}\|_1 $$ satisfies:
 1. Non-negativity: $ \|\mathbf{v}\|_1 \geq 0 $.
-2. Absolute scalability: $$ \|\alpha \mathbf{v}\|_1 = |\alpha| \|\mathbf{v}\|_1 $$.
+2. Absolute scalability: $$ \|\alpha \mathbf{v}\|_1$$ = $$|\alpha| \|\mathbf{v}\|_1 $$.
 3. Triangle inequality: $$ \|\mathbf{u} + \mathbf{v}\|_1 \leq \|\mathbf{u}\|_1 + \|\mathbf{v}\|_1 $$.
 4. Definiteness: $$ \|\mathbf{v}\|_1 = 0 $ if and only if $ \mathbf{v} = \mathbf{0} $$.
 
@@ -161,7 +161,7 @@ $$
 
 **Exercise**: Verify that $$ \|\mathbf{v}\|_\infty $$ satisfies:
 1. Non-negativity: $ \|\mathbf{v}\|_\infty \geq 0 $.
-2. Absolute scalability: $$\|\alpha \mathbf{v}\|_\infty = |\alpha| \|\mathbf{v}\|_\infty $$.
+2. Absolute scalability: $$\|\alpha \mathbf{v}\|_\infty$$ = $$|\alpha| \|\mathbf{v}\|_\infty $$.
 3. Triangle inequality: $$ \|\mathbf{u} + \mathbf{v}\|_\infty \leq \|\mathbf{u}\|_\infty + \|\mathbf{v}\|_\infty $$.
 4. Definiteness: $$ \|\mathbf{v}\|_\infty = 0 $$ if and only if $ \mathbf{v} = \mathbf{0} $.
 
