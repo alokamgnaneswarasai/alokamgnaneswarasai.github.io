@@ -3,27 +3,35 @@ layout: page
 title: About
 permalink: /about/
 ---
-Hello! I'm Sai, a passionate researcher and developer with a strong interest in deep learning, natural language processing, and recommender systems. My work spans various domains, including model development, data analysis, and optimization techniques. I aim to create intelligent systems that can solve complex problems and enhance user experiences.
+I’m Alokam Gnaneswara Sai, a 2nd-year M.Tech student at the Indian Institute of Science (IISc), Bengaluru, in the Department of Computer Science and Automation. I’m passionate about exploring the field of data science and its applications.
 
-### My Interests
+### Current Work
 
-- **Machine Learning**: Developing and optimizing models, particularly in the field of recommendation systems and natural language processing.
-- **Neural Networks**: Exploring the latest advancements in deep learning, including attention mechanisms, GANs, and transformers.
-- **Data Science**: Analyzing large datasets to derive meaningful insights and improve model performance.
+For my final project, I’m working in the domain of Recommendation Systems (RecSys). We are  developing a **unified recommendation system** that integrates multiple tasks, including:
 
-### My Projects
+- Sequential recommendation
+- Rating prediction
+- Explanation generation
+- Review summarization
 
-- **Recommendation Systems**: Research on creating unified models for tasks like rating prediction, sequential recommendation, and review summarization.
-- **Language Models**: Work on improving machine translation models and leveraging large pre-trained models with fine-tuning techniques like LoRA.
-- **Generative Models**: Building and analyzing GANs and VAEs for image generation and data synthesis.
+### Education
 
-### Skills
+**Courses Completed at IISc:**
 
-- **Deep Learning Frameworks**: PyTorch, TensorFlow, Keras
-- **Languages**: Python, C++
-- **Tools**: Jupyter, Git, LaTeX, Docker
-- **Other**: NLP, Computer Vision, Reinforcement Learning, Optimization Techniques
+- Applied Linear Algebra and Optimization
+- Probability and Statistics
+- Deep Learning for Natural Language Processing
+- Advanced Deep Representation Learning
+- Machine Learning
+- Systems for Machine Learning
+- Design and Analysis of Algorithms
+
+### Achievements
+
+-**GATE CSE**: Secured AIR 156 (2023) and AIR 386 (2022)
+-**JEE Advanced**: Secured AIR 8,000 (2019)
+-**AP-EAMCET**: Secured AIR 539 (2019)
 
 ### Contact Me
 
-You can reach me via email at [alokamgnaneswarasai@gmail.com](mailto:alokamgnaneswarasai@gmail.com). I look forward to hearing from you!
+Feel free to reach out at [alokamgnaneswarasai@gmail.com](mailto:alokamgnaneswarasai@gmail.com). I’m excited to connect with others in the field of data science and machine learning!
