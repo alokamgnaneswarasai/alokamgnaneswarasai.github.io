@@ -28,9 +28,9 @@ For my final project, I’m working in the domain of Recommendation Systems (Rec
 
 ### Achievements
 
--**GATE CSE**: Secured AIR 156 (2023) and AIR 386 (2022)
--**JEE Advanced**: Secured AIR 8,000 (2019)
--**AP-EAMCET**: Secured AIR 539 (2019)
+- **GATE CSE**: Secured AIR 156 (2023) and AIR 386 (2022)
+- **JEE Advanced**: Secured AIR 8,000 (2019)
+- **AP-EAMCET**: Secured AIR 539 (2019) #  
 
 ### Contact Me
 
