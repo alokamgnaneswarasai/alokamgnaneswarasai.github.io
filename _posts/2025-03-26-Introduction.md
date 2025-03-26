@@ -4,6 +4,26 @@ title: Introduction to vectors in Linear Algebra
 ---
 {%- include mathjax.html -%}
 
+
+# Table of Contents
+- [Table of Contents](#table-of-contents)
+  - [Definition of a Vector](#definition-of-a-vector)
+  - [Vector Operations](#vector-operations)
+    - [1. Vector Addition](#1-vector-addition)
+    - [2. Scalar Multiplication](#2-scalar-multiplication)
+    - [3. Linear Combination of Vectors](#3-linear-combination-of-vectors)
+  - [Magnitude of a Vector](#magnitude-of-a-vector)
+    - [Properties of a Norm](#properties-of-a-norm)
+    - [Euclidean Norm (L2 Norm)](#euclidean-norm-l2-norm)
+  - [Proof that the Euclidean Norm is a Valid Norm](#proof-that-the-euclidean-norm-is-a-valid-norm)
+    - [1. Non-negativity](#1-non-negativity)
+    - [2. Absolute Scalability](#2-absolute-scalability)
+    - [3. Triangle Inequality](#3-triangle-inequality)
+    - [4. Norm Definiteness](#4-norm-definiteness)
+  - [Homework: Verify Other Norms](#homework-verify-other-norms)
+    - [L1 Norm](#l1-norm)
+    - [L∞ Norm](#l-norm)
+  - [Challenge: Is the Minimum Norm Valid?](#challenge-is-the-minimum-norm-valid)
 ## Definition of a Vector
 
 In linear algebra, a **vector** is an element of a vector space. Mathematically, an **n-dimensional vector** is represented as:
