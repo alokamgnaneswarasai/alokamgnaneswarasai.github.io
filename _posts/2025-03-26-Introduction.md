@@ -5,6 +5,7 @@ title: Introduction to vectors in Linear Algebra
 
 {%- include mathjax.html -%}
 
+{%- include mathjax.html -%}
 
 ## Definition of a Vector
 
@@ -14,7 +15,7 @@ $$
 \mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} \in \mathbb{R}^n
 $$
 
-where each $$ v_i $$ is a real number, and $$ \mathbb{R}^n $$ denotes an n-dimensional real-valued vector space.
+where each $ v_i $ is a real number, and $ \mathbb{R}^n $ denotes an n-dimensional real-valued vector space.
 
 ## Magnitude of a Vector
 
@@ -28,7 +29,7 @@ This represents the length of the vector in an n-dimensional space.
 
 ## Vector Operations
 
-Given two vectors \( \mathbf{u} \) and \( \mathbf{v} \), the following operations can be performed:
+Given two vectors $ \mathbf{u} $ and $ \mathbf{v} $, the following operations can be performed:
 
 ### 1. Vector Addition
 
@@ -38,7 +39,7 @@ $$
 
 ### 2. Scalar Multiplication
 
-For a scalar \( \alpha \):
+For a scalar $ \alpha $:
 
 $$
 \alpha \mathbf{v} = \begin{bmatrix} \alpha v_1 \\ \alpha v_2 \\ \vdots \\ \alpha v_n \end{bmatrix}
@@ -46,12 +47,12 @@ $$
 
 ### 3. Linear Combination of Vectors
 
-A **linear combination** of vectors \( \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_k \) is expressed as:
+A **linear combination** of vectors $ \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_k $ is expressed as:
 
 $$
 \mathbf{w} = c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \dots + c_k \mathbf{v}_k
 $$
 
-where \( c_1, c_2, \dots, c_k \) are scalar coefficients. A set of vectors is said to be **linearly dependent** if at least one of them can be written as a combination of the others; otherwise, they are **linearly independent**.
+where $ c_1, c_2, \dots, c_k $ are scalar coefficients. A set of vectors is said to be **linearly dependent** if at least one of them can be written as a combination of the others; otherwise, they are **linearly independent**.
 
 ---
