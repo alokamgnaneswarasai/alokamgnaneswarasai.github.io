@@ -12,11 +12,11 @@ $$
 \mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} \in \mathbb{R}^n
 $$
 
-where each $$v_i$$ is a real number, and$${R}^n$$ denotes an n-dimensional real-valued vector space.
+where each $v_i $ is a real number, and${R}^n$ denotes an n-dimensional real-valued vector space.
 
 ## Magnitude of a Vector
 
-The **magnitude (or norm)** of a vector $$\mathbf{v}$$ is given by the Euclidean norm:
+The **magnitude (or norm)** of a vector $\mathbf{v}$ is given by the Euclidean norm:
 
 $$
 ||\mathbf{v}|| = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2}
@@ -49,6 +49,7 @@ A **linear combination** of vectors $ \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf
 $$
 \mathbf{w} = c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \dots + c_k \mathbf{v}_k
 $$
+
 
 where $ c_1, c_2, \dots, c_k $ are scalar coefficients. A set of vectors is said to be **linearly dependent** if at least one of them can be written as a combination of the others; otherwise, they are **linearly independent**.
 
