@@ -51,15 +51,15 @@ where $ c_1, c_2, \dots, c_k $ are scalar coefficients.
 
 For a vector norm $$ \|\mathbf{v}\| $$, the following properties hold:
 
-1. **Non-negativity**: $ \|\mathbf{v}\| \geq 0 $, and $ \|\mathbf{v}\| = 0 $ if and only if $ \mathbf{v} = \mathbf{0} $.
+1. **Non-negativity**: $$ \|\mathbf{v}\|  \geq 0 $$, and $$ \|\mathbf{v}\| = 0 $$ if and only if $ \mathbf{v} = \mathbf{0} $.
 2. **Absolute Scalability**: For any scalar $ \alpha $,
 
 $$
 \|\alpha \mathbf{v}\| = |\alpha| \|\mathbf{v}\|
 $$
 
-3. **Triangle Inequality**: $ \|\mathbf{u} + \mathbf{v}\| \leq \|\mathbf{u}\| + \|\mathbf{v}\| $.
-4. **Norm Definiteness**: If $ \|\mathbf{v}\| = 0 $, then $ \mathbf{v} $ must be the zero vector.
+3. **Triangle Inequality**: $$ \|\mathbf{u} + \mathbf{v}\| \leq \|\mathbf{u}\| + \|\mathbf{v}\| $$.
+4. **Norm Definiteness**: If $$ \|\mathbf{v}\| = 0 $$, then $ \mathbf{v} $ must be the zero vector.
 
 ### Euclidean Norm (L2 Norm)
 
@@ -76,7 +76,7 @@ $$
 \|\mathbf{v}\|_2 = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2} \geq 0
 $$
 
-As $ v_i^2 \geq 0 $ for all $ i $, it follows that $ \|\mathbf{v}\|_2 \geq 0 $. If $ \|\mathbf{v}\|_2 = 0 $, then:
+As $ v_i^2 \geq 0 $ for all $ i $, it follows that $$ \|\mathbf{v}\|_2 \geq 0 $$. If $$ \|\mathbf{v}\|_2 = 0 $$, then:
 
 $$
 v_1^2 + v_2^2 + \dots + v_n^2 = 0
@@ -129,26 +129,26 @@ $$
 $$
 
 ### 4. Norm Definiteness
-Follows from non-negativity: $ \|\mathbf{v}\|_2 = 0 $ if and only if $ \mathbf{v} = \mathbf{0} $.
+Follows from non-negativity: $$ \|\mathbf{v}\|_2 = 0 $$ if and only if $ \mathbf{v} = \mathbf{0} $.
 
 ## Homework: Verify Other Norms
 
 Now that we’ve proved the Euclidean norm (L2 norm) is valid, let’s explore other common norms. Try proving these yourself!
 
 ### L1 Norm
-The L1 norm (or Manhattan norm) of a vector $ \mathbf{v} = [v_1, v_2, \dots, v_n] $ is:
+The L1 norm (or Manhattan norm) of a vector $$ \mathbf{v} = [v_1, v_2, \dots, v_n] $$ is:
 
 $$
 \|\mathbf{v}\|_1 = |v_1| + |v_2| + \dots + |v_n|
 $$
 
-**Exercise**: Verify that $ \|\mathbf{v}\|_1 $ satisfies:
+**Exercise**: Verify that $$ \|\mathbf{v}\|_1 $$ satisfies:
 1. Non-negativity: $ \|\mathbf{v}\|_1 \geq 0 $.
-2. Absolute scalability: $ \|\alpha \mathbf{v}\|_1 = |\alpha| \|\mathbf{v}\|_1 $.
-3. Triangle inequality: $ \|\mathbf{u} + \mathbf{v}\|_1 \leq \|\mathbf{u}\|_1 + \|\mathbf{v}\|_1 $.
-4. Definiteness: $ \|\mathbf{v}\|_1 = 0 $ if and only if $ \mathbf{v} = \mathbf{0} $.
+2. Absolute scalability: $$ \|\alpha \mathbf{v}\|_1 = |\alpha| \|\mathbf{v}\|_1 $$.
+3. Triangle inequality: $$ \|\mathbf{u} + \mathbf{v}\|_1 \leq \|\mathbf{u}\|_1 + \|\mathbf{v}\|_1 $$.
+4. Definiteness: $$ \|\mathbf{v}\|_1 = 0 $ if and only if $ \mathbf{v} = \mathbf{0} $$.
 
-*Hint*: Use the triangle inequality for real numbers ($ |a + b| \leq |a| + |b| $) for property 3.
+*Hint*: Use the triangle inequality for real numbers ($$ |a + b| \leq |a| + |b| $$) for property 3.
 
 ### L∞ Norm
 The L∞ norm (or maximum norm) of a vector $ \mathbf{v} = [v_1, v_2, \dots, v_n] $ is:
@@ -159,11 +159,11 @@ $$
 
 
 
-**Exercise**: Verify that $ \|\mathbf{v}\|_\infty $ satisfies:
+**Exercise**: Verify that $$ \|\mathbf{v}\|_\infty $$ satisfies:
 1. Non-negativity: $ \|\mathbf{v}\|_\infty \geq 0 $.
-2. Absolute scalability: $ \|\alpha \mathbf{v}\|_\infty = |\alpha| \|\mathbf{v}\|_\infty $.
-3. Triangle inequality: $ \|\mathbf{u} + \mathbf{v}\|_\infty \leq \|\mathbf{u}\|_\infty + \|\mathbf{v}\|_\infty $.
-4. Definiteness: $ \|\mathbf{v}\|_\infty = 0 $ if and only if $ \mathbf{v} = \mathbf{0} $.
+2. Absolute scalability: $$\|\alpha \mathbf{v}\|_\infty = |\alpha| \|\mathbf{v}\|_\infty $$.
+3. Triangle inequality: $$ \|\mathbf{u} + \mathbf{v}\|_\infty \leq \|\mathbf{u}\|_\infty + \|\mathbf{v}\|_\infty $$.
+4. Definiteness: $$ \|\mathbf{v}\|_\infty = 0 $$ if and only if $ \mathbf{v} = \mathbf{0} $.
 
 *Hint*: Consider how the maximum of a sum relates to the sum of maximums for property 3.
 
@@ -175,7 +175,7 @@ $$
 \|\mathbf{v}\|_\text{min} = \min_{i} |v_i|
 $$
 
-**Question**: Does $ \|\mathbf{v}\|_\text{min} $ satisfy all four norm properties?
+**Question**: Does $$ \|\mathbf{v}\|_\text{min} $$ satisfy all four norm properties?
 - Test non-negativity, absolute scalability, triangle inequality, and definiteness.
 - Try a simple example, like $ \mathbf{u} = [1, 0] $ and $ \mathbf{v} = [0, 1] $, to check the triangle inequality.
 - What about definiteness? Does $ \|\mathbf{v}\|_\text{min} = 0 $ imply $ \mathbf{v} = \mathbf{0} $?
