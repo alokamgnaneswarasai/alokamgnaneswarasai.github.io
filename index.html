@@ -13,11 +13,11 @@
             <h1>Alokam Gnaneswara Sai</h1>
             <nav>
                 <ul>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#cv">CV</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#blogs">Blogs</a></li>
+                    <li><a href="#education" data-section="education">Education</a></li>
+                    <li><a href="#cv" data-section="cv">CV</a></li>
+                    <li><a href="#projects" data-section="projects">Projects</a></li>
+                    <li><a href="#contact" data-section="contact">Contact</a></li>
+                    <li><a href="#blogs" data-section="blogs">Blogs</a></li>
                 </ul>
             </nav>
         </div>
@@ -25,7 +25,7 @@
 
     <!-- Main Content -->
     <main class="container">
-        <!-- About Section -->
+        <!-- About Section (Always Visible) -->
         <section id="about">
             <h2>About Me</h2>
             <p>
@@ -35,8 +35,8 @@
             </p>
         </section>
 
-        <!-- Education Section -->
-        <section id="education">
+        <!-- Hidden Sections (Displayed on Click) -->
+        <section id="education" class="hidden">
             <h2>Education</h2>
             <div class="edu-item">
                 <h3>Bachelor of Technology in [Your Branch]</h3>
@@ -50,8 +50,7 @@
             </div>
         </section>
 
-        <!-- CV Section -->
-        <section id="cv">
+        <section id="cv" class="hidden">
             <h2>CV</h2>
             <p>
                 Here’s a summary of my skills and experience. Download my full CV <a href="path-to-your-cv.pdf" target="_blank">here</a>.
@@ -63,8 +62,7 @@
             </ul>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects">
+        <section id="projects" class="hidden">
             <h2>Projects</h2>
             <div class="project">
                 <h3>[Project Name 1]</h3>
@@ -78,16 +76,14 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
+        <section id="contact" class="hidden">
             <h2>Contact</h2>
             <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
             <p>LinkedIn: <a href="https://linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a></p>
             <p>GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
         </section>
 
-        <!-- Blogs Section -->
-        <section id="blogs">
+        <section id="blogs" class="hidden">
             <h2>Blogs</h2>
             <div class="blog-post">
                 <h3>My First Blog Post</h3>
@@ -104,7 +100,7 @@
         <p>© 2025 Alokam Gnaneswara Sai. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for smooth scrolling -->
+    <!-- JavaScript for dynamic display -->
     <script src="script.js"></script>
 </body>
 </html>

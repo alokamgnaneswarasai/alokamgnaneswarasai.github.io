@@ -50,6 +50,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
+    cursor: pointer;
 }
 
 nav ul li a:hover {
@@ -69,7 +70,12 @@ h2 {
     display: inline-block;
 }
 
-/* Education and CV */
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Education, Projects, CV, Blogs */
 .edu-item, .project, .blog-post {
     background-color: white;
     padding: 20px;
