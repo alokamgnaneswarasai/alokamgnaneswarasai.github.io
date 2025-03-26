@@ -4,7 +4,7 @@ title: Introduction to vectors in Linear Algebra
 ---
 
 
-<!-- {%- include mathjax.html -%} -->
+{%- include mathjax.html -%}
 
 ## Definition of a Vector
 
