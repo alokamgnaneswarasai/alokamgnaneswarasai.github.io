@@ -142,12 +142,7 @@ $$
 \|\mathbf{v}\|_1 = |v_1| + |v_2| + \dots + |v_n|
 $$
 
-**Exercise**: Verify that $$ \|\mathbf{v}\|_1 $$ satisfies:
-1. Non-negativity: $ \|\mathbf{v}\|_1 \geq 0 $.
-2. Absolute scalability: $$ \|\alpha \mathbf{v}\|_1$$ = $$|\alpha| \|\mathbf{v}\|_1 $$.
-3. Triangle inequality: $$ \|\mathbf{u} + \mathbf{v}\|_1 \leq \|\mathbf{u}\|_1 + \|\mathbf{v}\|_1 $$.
-4. Definiteness: $$ \|\mathbf{v}\|_1 = 0 $ if and only if $ \mathbf{v} = \mathbf{0} $$.
-
+**Exercise**: Verify that $$ \|\mathbf{v}\|_1 $$ satisfies all the properties of norm or not?
 *Hint*: Use the triangle inequality for real numbers ($$ |a + b| \leq |a| + |b| $$) for property 3.
 
 ### L∞ Norm
@@ -159,12 +154,7 @@ $$
 
 
 
-**Exercise**: Verify that $$ \|\mathbf{v}\|_\infty $$ satisfies:
-1. Non-negativity: $ \|\mathbf{v}\|_\infty \geq 0 $.
-2. Absolute scalability: $$\|\alpha \mathbf{v}\|_\infty$$ = $$|\alpha| \|\mathbf{v}\|_\infty $$.
-3. Triangle inequality: $$ \|\mathbf{u} + \mathbf{v}\|_\infty \leq \|\mathbf{u}\|_\infty + \|\mathbf{v}\|_\infty $$.
-4. Definiteness: $$ \|\mathbf{v}\|_\infty = 0 $$ if and only if $ \mathbf{v} = \mathbf{0} $.
-
+**Exercise**: Verify that $$ \|\mathbf{v}\|_\infty $$ satisfies all the properties of norm or not?
 *Hint*: Consider how the maximum of a sum relates to the sum of maximums for property 3.
 
 ## Challenge: Is the Minimum Norm Valid?
@@ -176,9 +166,7 @@ $$
 $$
 
 **Question**: Does $$ \|\mathbf{v}\|_\text{min} $$ satisfy all four norm properties?
-- Test non-negativity, absolute scalability, triangle inequality, and definiteness.
 - Try a simple example, like $ \mathbf{u} = [1, 0] $ and $ \mathbf{v} = [0, 1] $, to check the triangle inequality.
-- What about definiteness? Does $ \|\mathbf{v}\|_\text{min} = 0 $ imply $ \mathbf{v} = \mathbf{0} $?
 
 
 
