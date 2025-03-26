@@ -57,7 +57,7 @@ where $ c_1, c_2, \dots, c_k $ are scalar coefficients.
 For a vector norm $ \|\mathbf{v}\| $, the following properties hold:
 
 1. **Non-negativity**: $ \|\mathbf{v}\| \geq 0 $, and $ \|\mathbf{v}\| $ = 0 if and only if $ \mathbf{v} = \mathbf{0} $.
-2. **Absolute Scalability**: For any scalar $ \alpha $, $ \|\alpha \mathbf{v}\| $ = $|\alpha| \|\mathbf{v}\| $
+2. **Absolute Scalability**: For any scalar $ \alpha $, $ \|\alpha \mathbf{v}\| $ = $|\alpha|$.$\|\mathbf{v}\| $
 3. **Triangle Inequality**: $ \|\mathbf{u} + \mathbf{v}\| \leq \|\mathbf{u}\| + \|\mathbf{v}\| $.
 4. **Norm Definiteness**: If $ \|\mathbf{v}\| = 0 $, then $ \mathbf{v} $ must be the zero vector.
 
@@ -88,9 +88,11 @@ For any scalar $ \alpha $,
 $$
 \|\alpha \mathbf{v}\|_2 = \sqrt{(\alpha v_1)^2 + (\alpha v_2)^2 + \dots + (\alpha v_n)^2}
 $$
+
 $$
 = \sqrt{\alpha^2 (v_1^2 + v_2^2 + \dots + v_n^2)}
 $$
+
 $$
 = |\alpha| \sqrt{v_1^2 + v_2^2 + \dots + v_n^2} = |\alpha| \|\mathbf{v}\|_2.
 $$
@@ -100,20 +102,25 @@ For vectors $ \mathbf{u}, \mathbf{v} \in \mathbb{R}^n $,
 $$
 \|\mathbf{u} + \mathbf{v}\|_2^2 = \sum_{i=1}^{n} (u_i + v_i)^2
 $$
+
 $$
 = \sum_{i=1}^{n} (u_i^2 + 2 u_i v_i + v_i^2)
 $$
+
 $$
 = \|\mathbf{u}\|_2^2 + 2 \sum_{i=1}^{n} u_i v_i + \|\mathbf{v}\|_2^2.
 $$
+
 By the Cauchy-Schwarz inequality:
 $$
 \sum_{i=1}^{n} u_i v_i \leq \|\mathbf{u}\|_2 \|\mathbf{v}\|_2.
 $$
+
 Thus,
 $$
 \|\mathbf{u} + \mathbf{v}\|_2^2 \leq (\|\mathbf{u}\|_2 + \|\mathbf{v}\|_2)^2.
 $$
+
 Taking the square root:
 $$
 \|\mathbf{u} + \mathbf{v}\|_2 \leq \|\mathbf{u}\|_2 + \|\mathbf{v}\|_2.
