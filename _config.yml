@@ -54,6 +54,7 @@ baseurl: ""
 #
 
 markdown: kramdown
+mathjax: true
 highlighter: rouge
 permalink: /:title/
 
