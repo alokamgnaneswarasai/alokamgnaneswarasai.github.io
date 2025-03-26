@@ -1,5 +1,5 @@
 ---
 layout: post
-title: Introduction to vectors in Linear Algebra
+title: Introduction to calculus
 ---
 {%- include mathjax.html -%}

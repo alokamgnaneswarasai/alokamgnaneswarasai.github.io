@@ -56,6 +56,7 @@ For a vector norm $ \|\mathbf{v}\| $, the following properties hold:
 $$
 \|\alpha \mathbf{v}\| = |\alpha| \|\mathbf{v}\|
 $$
+
 3. **Triangle Inequality**: $ \|\mathbf{u} + \mathbf{v}\| \leq \|\mathbf{u}\| + \|\mathbf{v}\| $.
 4. **Norm Definiteness**: If $ \|\mathbf{v}\| = 0 $, then $ \mathbf{v} $ must be the zero vector.
 
