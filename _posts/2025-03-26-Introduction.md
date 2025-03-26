@@ -50,7 +50,7 @@ where $ c_1, c_2, \dots, c_k $ are scalar coefficients.
 
 ### Properties of a Norm
 
-For a vector norm $ \|\mathbf{v}\| $, the following properties hold:
+For a vector norm $ \||\mathbf{v}\|| $, the following properties hold:
 
 1. **Non-negativity**: $ \|\mathbf{v}\| \geq 0 $, and $ \|\mathbf{v}\| = 0 $ if and only if $ \mathbf{v} = \mathbf{0} $.
 2. **Absolute Scalability**: For any scalar $ \alpha $,
