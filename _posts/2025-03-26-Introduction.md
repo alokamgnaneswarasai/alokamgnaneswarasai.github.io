@@ -12,7 +12,7 @@ $$
 \mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} \in \mathbb{R}^n
 $$
 
-where each $v_i $ is a real number, and${R}^n$ denotes an n-dimensional real-valued vector space.
+where each $$v_i$$ is a real number, and$${R}^n$$ denotes an n-dimensional real-valued vector space.
 
 ## Magnitude of a Vector
 
