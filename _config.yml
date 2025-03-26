@@ -55,7 +55,7 @@ baseurl: ""
 
 markdown: kramdown
 kramdown:
-  math_engine: mathjax
+  math_engine: katex
 highlighter: rouge
 permalink: /:title/
 
