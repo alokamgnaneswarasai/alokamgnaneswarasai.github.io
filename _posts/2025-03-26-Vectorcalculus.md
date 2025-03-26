@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introduction to calculus
+title: Introduction to multi variate calculus
 ---
 {%- include mathjax.html -%}
 
