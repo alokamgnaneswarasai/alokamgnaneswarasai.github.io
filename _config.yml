@@ -54,8 +54,6 @@ baseurl: ""
 #
 
 markdown: kramdown
-kramdown:
-  math_engine: katex
 highlighter: rouge
 permalink: /:title/
 
