@@ -56,8 +56,8 @@ where $ c_1, c_2, \dots, c_k $ are scalar coefficients.
 
 For a vector norm $ \|\mathbf{v}\| $, the following properties hold:
 
-1. **Non-negativity**: $ \|\mathbf{v}\| \geq 0 $, and $ \|\mathbf{v}\| = 0 $ if and only if $ \mathbf{v} = \mathbf{0} $.
-2. **Absolute Scalability**: For any scalar $ \alpha $, $ \|\alpha \mathbf{v}\| = |\alpha| \|\mathbf{v}\| $.
+1. **Non-negativity**: $ \|\mathbf{v}\| \geq 0 $, and $ \|\mathbf{v}\| $ = 0 if and only if $ \mathbf{v} = \mathbf{0} $.
+2. **Absolute Scalability**: For any scalar $ \alpha $, $ \|\alpha \mathbf{v}\| $ = $|\alpha| \|\mathbf{v}\| $
 3. **Triangle Inequality**: $ \|\mathbf{u} + \mathbf{v}\| \leq \|\mathbf{u}\| + \|\mathbf{v}\| $.
 4. **Norm Definiteness**: If $ \|\mathbf{v}\| = 0 $, then $ \mathbf{v} $ must be the zero vector.
 
