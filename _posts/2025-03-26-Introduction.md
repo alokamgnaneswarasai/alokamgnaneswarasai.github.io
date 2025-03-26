@@ -45,12 +45,11 @@ $$
 where $ c_1, c_2, \dots, c_k $ are scalar coefficients.
 
 <!--more-->
-
 ## Magnitude of a Vector
 
 ### Properties of a Norm
 
-For a vector norm $ \||\mathbf{v}\|| $, the following properties hold:
+For a vector norm $$ \|\mathbf{v}\| $$, the following properties hold:
 
 1. **Non-negativity**: $ \|\mathbf{v}\| \geq 0 $, and $ \|\mathbf{v}\| = 0 $ if and only if $ \mathbf{v} = \mathbf{0} $.
 2. **Absolute Scalability**: For any scalar $ \alpha $,
@@ -73,7 +72,6 @@ $$
 ## Proof that the Euclidean Norm is a Valid Norm
 
 ### 1. Non-negativity
-
 $$
 \|\mathbf{v}\|_2 = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2} \geq 0
 $$
@@ -87,7 +85,6 @@ $$
 Since each term is non-negative, $ v_i = 0 $ for all $ i $, implying $ \mathbf{v} = \mathbf{0} $.
 
 ### 2. Absolute Scalability
-
 For any scalar $ \alpha $,
 
 $$
@@ -100,7 +97,6 @@ $$
 $$
 
 ### 3. Triangle Inequality
-
 For vectors $ \mathbf{u}, \mathbf{v} \in \mathbb{R}^n $,
 
 $$
@@ -133,7 +129,6 @@ $$
 $$
 
 ### 4. Norm Definiteness
-
 Follows from non-negativity: $ \|\mathbf{v}\|_2 = 0 $ if and only if $ \mathbf{v} = \mathbf{0} $.
 
 ## Homework: Verify Other Norms
@@ -141,7 +136,6 @@ Follows from non-negativity: $ \|\mathbf{v}\|_2 = 0 $ if and only if $ \mathbf{v
 Now that we’ve proved the Euclidean norm (L2 norm) is valid, let’s explore other common norms. Try proving these yourself!
 
 ### L1 Norm
-
 The L1 norm (or Manhattan norm) of a vector $ \mathbf{v} = [v_1, v_2, \dots, v_n] $ is:
 
 $$
@@ -149,7 +143,6 @@ $$
 $$
 
 **Exercise**: Verify that $ \|\mathbf{v}\|_1 $ satisfies:
-
 1. Non-negativity: $ \|\mathbf{v}\|_1 \geq 0 $.
 2. Absolute scalability: $ \|\alpha \mathbf{v}\|_1 = |\alpha| \|\mathbf{v}\|_1 $.
 3. Triangle inequality: $ \|\mathbf{u} + \mathbf{v}\|_1 \leq \|\mathbf{u}\|_1 + \|\mathbf{v}\|_1 $.
@@ -158,15 +151,15 @@ $$
 *Hint*: Use the triangle inequality for real numbers ($ |a + b| \leq |a| + |b| $) for property 3.
 
 ### L∞ Norm
-
 The L∞ norm (or maximum norm) of a vector $ \mathbf{v} = [v_1, v_2, \dots, v_n] $ is:
 
 $$
 \|\mathbf{v}\|_\infty = \max_{i} |v_i|
 $$
 
-**Exercise**: Verify that $ \|\mathbf{v}\|_\infty $ satisfies:
 
+
+**Exercise**: Verify that $ \|\mathbf{v}\|_\infty $ satisfies:
 1. Non-negativity: $ \|\mathbf{v}\|_\infty \geq 0 $.
 2. Absolute scalability: $ \|\alpha \mathbf{v}\|_\infty = |\alpha| \|\mathbf{v}\|_\infty $.
 3. Triangle inequality: $ \|\mathbf{u} + \mathbf{v}\|_\infty \leq \|\mathbf{u}\|_\infty + \|\mathbf{v}\|_\infty $.
@@ -183,9 +176,10 @@ $$
 $$
 
 **Question**: Does $ \|\mathbf{v}\|_\text{min} $ satisfy all four norm properties?
-
 - Test non-negativity, absolute scalability, triangle inequality, and definiteness.
 - Try a simple example, like $ \mathbf{u} = [1, 0] $ and $ \mathbf{v} = [0, 1] $, to check the triangle inequality.
 - What about definiteness? Does $ \|\mathbf{v}\|_\text{min} = 0 $ imply $ \mathbf{v} = \mathbf{0} $?
 
----
+
+
+----------------------------------------------
