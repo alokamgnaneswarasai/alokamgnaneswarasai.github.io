@@ -44,6 +44,8 @@ $$
 
 where $ c_1, c_2, \dots, c_k $ are scalar coefficients.
 
+
+<!--more-->
 ## Magnitude of a Vector
 
 ### Properties of a Norm

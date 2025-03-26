@@ -5,3 +5,5 @@ title: Introduction to calculus
 {%- include mathjax.html -%}
 
 Hello world
+
+<!--more-->
