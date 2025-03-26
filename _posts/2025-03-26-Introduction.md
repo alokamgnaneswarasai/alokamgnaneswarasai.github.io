@@ -18,7 +18,7 @@ where each $$ v_i $$ is a real number, and $$ \mathbb{R}^n $$ denotes an n-dimen
 
 ## Magnitude of a Vector
 
-The **magnitude (or norm)** of a vector \( \mathbf{v} \) is given by the Euclidean norm:
+The **magnitude (or norm)** of a vector $ \mathbf{v} $ is given by the Euclidean norm:
 
 $$
 \|\mathbf{v}\| = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2}
