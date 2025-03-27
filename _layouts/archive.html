@@ -26,7 +26,8 @@ layout: default
     />
   </div>
 
-  <div class="blog-list" id="blogList" style="display: flex; flex-direction: column; gap: 20px;">
+  <!-- Blog List -->
+  <div class="blog-list" id="blogList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
     {% for post in site.posts %}
       <div class="blog-item" data-tags="{{ post.tags | join: ',' }}" style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); background-color: #f9f9f9;">
         <h2 style="margin: 0 0 10px;"><a href="{{ post.url }}" style="text-decoration: none; color: #333;">{{ post.title }}</a></h2>
