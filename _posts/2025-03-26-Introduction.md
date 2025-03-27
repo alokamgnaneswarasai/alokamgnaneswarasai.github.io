@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Introduction to vectors in Linear Algebra
+tags: [linear algebra, vectors, mathematics]
 ---
-{%- include mathjax.html -%}
+<!-- {%- include mathjax.html -%} -->
 
 
 ### Table of Contents
@@ -37,7 +38,7 @@ In linear algebra, a **vector** is an element of a **vector space**. A vector sp
 For practical purposes, vectors are often represented with coordinates once a basis is chosen. Below are common representations in the context of the vector space $$ \mathbb{R}^n $$ over the field $$ \mathbb{R} $$, though vectors can take other forms depending on the space (e.g., polynomials, functions, or matrices).
 
 ### Column Vector 
-An **n-dimensional column vector** in $$ \mathbb{R}^n $$ is represented as:
+An **n-dimensional column vector** in $ \mathbb{R}^n $ is represented as:
 
 $$
 
