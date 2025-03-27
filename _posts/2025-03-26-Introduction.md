@@ -7,6 +7,8 @@ title: Introduction to vectors in Linear Algebra
 
 ### Table of Contents
 - [Definition of a Vector](#definition-of-a-vector)
+  - [Column Vector](#column-vector)
+  - [Row Vector](#row-vector)
 - [Vector Operations](#vector-operations)
   - [1. Vector Addition](#1-vector-addition)
   - [2. Scalar Multiplication](#2-scalar-multiplication)
@@ -23,20 +25,57 @@ title: Introduction to vectors in Linear Algebra
   - [L1 Norm](#l1-norm)
   - [L∞ Norm](#l-norm)
 - [Challenge: Is the Minimum Norm Valid?](#challenge-is-the-minimum-norm-valid)
+- [Dot Product of Two Vectors](#dot-product-of-two-vectors)
+    - [Steps](#steps)
+- [Unit Vectors](#unit-vectors)
+- [Hello](#hello)
 
 ## Definition of a Vector
 
-In linear algebra, a **vector** is an element of a vector space. Mathematically, an **n-dimensional vector** is represented as:
+In linear algebra, a **vector** is an element of a **vector space**. A vector space $$ V $$ is a set equipped with two operations—vector addition and scalar multiplication—that satisfy certain axioms (e.g., associativity, commutativity, distributivity). These operations are defined over a **field** $$ F $$, such as the real numbers $$ \mathbb{R} $$, complex numbers $$ \mathbb{C} $$, or any other field (e.g., rational numbers $$ \mathbb{Q} $$ or finite fields $$ \mathbb{F}_p $$). Thus, a vector $$ \mathbf{v} $$ is any element $$ \mathbf{v} \in V $$, where $$ V $$ is a vector space over $$ F $$.
+
+For practical purposes, vectors are often represented with coordinates once a basis is chosen. Below are common representations in the context of the vector space $$ \mathbb{R}^n $$ over the field $$ \mathbb{R} $$, though vectors can take other forms depending on the space (e.g., polynomials, functions, or matrices).
+
+### Column Vector 
+An **n-dimensional column vector** in $$ \mathbb{R}^n $$ is represented as:
 
 $$
+
 \mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} \in \mathbb{R}^n
+
 $$
 
-where each $ v_i $ is a real number, and $ \mathbb{R}^n $ denotes an n-dimensional real-valued vector space.
+where each $$ v_i $$ is a real number. Using transpose notation, this can also be written as the transpose of a row vector:
+
+$$
+
+\mathbf{v} = (v_1, v_2, \dots, v_n)^\top
+
+$$
+
+### Row Vector 
+An **n-dimensional row vector** in $$ \mathbb{R}^n $$ is represented as:
+
+$$
+
+\mathbf{v} = \begin{bmatrix} v_1 & v_2 & \dots & v_n \end{bmatrix} \in \mathbb{R}^n
+
+$$
+
+Alternatively, it can be written in tuple form:
+
+$$
+
+\mathbf{v} = (v_1, v_2, \dots, v_n)
+
+$$
+
+The column vector form is the transpose of the row vector, i.e., $$ \mathbf{v}^\top = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} $$.
+
 
 ## Vector Operations
 
-Given two vectors $ \mathbf{u} $ and $ \mathbf{v} $, the following operations can be performed:
+Given two column vectors $ \mathbf{u} $ and $ \mathbf{v} $, the following operations can be performed:
 
 ### 1. Vector Addition
 
@@ -65,6 +104,29 @@ $$
 where $ c_1, c_2, \dots, c_k $ are scalar coefficients.
 
 <!--more-->
+
+**Example: 3D Vectors**
+Consider three vectors in $$ \mathbb{R}^3 $$:
+
+$$
+\mathbf{v}_1 = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}, \quad 
+\mathbf{v}_2 = \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix}, \quad 
+\mathbf{v}_3 = \begin{bmatrix} 7 \\ 8 \\ 9 \end{bmatrix}
+$$
+
+A general linear combination of these vectors is:
+
+$$
+\mathbf{w} = c_1 \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} + 
+c_2 \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix} + 
+c_3 \begin{bmatrix} 7 \\ 8 \\ 9 \end{bmatrix}
+$$
+
+$$
+= \begin{bmatrix} c_1 + 4c_2 + 7c_3 \\ 2c_1 + 5c_2 + 8c_3 \\ 3c_1 + 6c_2 + 9c_3 \end{bmatrix}
+$$
+
+
 ## Magnitude of a Vector
 Before that, lets see the definition of norm. Norm is represented as $$ \|.\| $$
 ### Properties of a Norm
@@ -189,5 +251,83 @@ $$
 - Try a simple example, like $ \mathbf{u} = [1, 0] $ and $ \mathbf{v} = [0, 1] $, to check the triangle inequality.
 
 
+## Dot Product of Two Vectors
 
+The **dot product** (or scalar product) of two vectors $$ \mathbf{u} $$ and $$ \mathbf{v} $$ in $$ \mathbb{R}^n $$ is defined as:
+
+$$
+
+\mathbf{u} \cdot \mathbf{v} = u_1 v_1 + u_2 v_2 + \dots + u_n v_n
+
+$$
+
+For column vectors $$ \mathbf{u} = \begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix} $$ and $$ \mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} $$, the dot product is a scalar given by the sum of the products of their corresponding components:
+
+$$
+
+\mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^{n} u_i v_i
+
+$$
+
+**Prove that $$ \boxed{\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos\theta }$$**
+
+Consider two vectors $$ \mathbf{u} = (u_1, \dots, u_n)^\top $$ and $$ \mathbf{v} = (v_1, \dots, v_n)^\top $$ in $$ \mathbb{R}^n $$, where $$ \theta $$ is the angle between them. We aim to show:
+
+$$
+
+\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\|_2 \|\mathbf{v}\|_2 \cos\theta
+
+$$
+
+#### Steps
+- Use the law of cosines in the triangle formed by $$ \mathbf{u} $$, $$ \mathbf{v} $$, and $$ \mathbf{u} - \mathbf{v} $$:
+
+$$
+
+\|\mathbf{u} - \mathbf{v}\|_2^2 = \|\mathbf{u}\|_2^2 + \|\mathbf{v}\|_2^2 - 2 \|\mathbf{u}\|_2 \|\mathbf{v}\|_2 \cos\theta
+
+$$
+
+- Expand the left-hand side using the Euclidean norm:
+
+$$
+
+\begin{align*}
+\|\mathbf{u} - \mathbf{v}\|_2^2 &= \sum_{i=1}^{n} (u_i - v_i)^2 \\
+&= \sum_{i=1}^{n} (u_i^2 - 2 u_i v_i + v_i^2) \\
+&= \sum_{i=1}^{n} u_i^2 - 2 \sum_{i=1}^{n} u_i v_i + \sum_{i=1}^{n} v_i^2 \\
+&= \|\mathbf{u}\|_2^2 - 2 \mathbf{u} \cdot \mathbf{v} + \|\mathbf{v}\|_2^2
+\end{align*}
+
+$$
+
+- Equate the two expressions:
+
+$$
+
+\begin{align*}
+\|\mathbf{u}\|_2^2 - 2 \mathbf{u} \cdot \mathbf{v} + \|\mathbf{v}\|_2^2 &= \|\mathbf{u}\|_2^2 + \|\mathbf{v}\|_2^2 - 2 \|\mathbf{u}\|_2 \|\mathbf{v}\|_2 \cos\theta \\
+-2 \mathbf{u} \cdot \mathbf{v} &= -2 \|\mathbf{u}\|_2 \|\mathbf{v}\|_2 \cos\theta
+\end{align*}
+
+$$
+
+$$
+
+\boxed{\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\|_2 \|\mathbf{v}\|_2 \cos\theta}
+
+$$
+
+Hence proved
+## Unit Vectors
+
+A **unit vector** is a vector with a magnitude of 1, i.e., $$ \|\mathbf{u}\| = 1 $$. For any non-zero vector $$ \mathbf{v} $$, its unit vector in the same direction is:
+
+$$
+
+\hat{\mathbf{v}} = \frac{\mathbf{v}}{\|\mathbf{v}\|}
+
+$$
+
+Hello
 ----------------------------------------------

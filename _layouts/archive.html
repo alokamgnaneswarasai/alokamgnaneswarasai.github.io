@@ -1,0 +1,85 @@
+---
+layout: default
+---
+
+<div class="archive">
+  <h1 style="text-align: center; margin-bottom: 30px;">Archive</h1>
+  
+  <!-- Search Input -->
+  <div style="text-align: center; margin-bottom: 20px;">
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="Search blogs..." 
+      style="width: 80%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+      onkeyup="filterBlogs()"
+    />
+  </div>
+
+  <div class="blog-list" id="blogList" style="display: flex; flex-direction: column; gap: 20px;">
+    {% for post in site.posts %}
+      <div class="blog-item" style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <h2 style="margin: 0 0 10px;"><a href="{{ post.url }}" style="text-decoration: none; color: #333;">{{ post.title }}</a></h2>
+        <div class="meta" style="font-size: 0.9em; color: #777; margin-bottom: 15px;">
+          <span>Written on {{ post.date | date: "%B %e, %Y" }}</span> | 
+          <span>Reading time: {{ post.content | number_of_words | divided_by: 200 | ceil }} min read</span>
+        </div>
+        <a href="{{ post.url }}" style="display: inline-block; margin-top: 10px; font-weight: bold; color: #007BFF; text-decoration: none;">Read more →</a>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- No Match Message -->
+  <div id="noMatchMessage" style="display: none; text-align: center; color: #777; margin-top: 20px;">
+    No exact matches found. Did you mean: <span id="suggestion" style="font-weight: bold; color: #007BFF;"></span>?
+  </div>
+</div>
+
+<script>
+  function filterBlogs() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const blogList = document.getElementById('blogList');
+    const blogs = blogList.getElementsByClassName('blog-item');
+    const noMatchMessage = document.getElementById('noMatchMessage');
+    const suggestion = document.getElementById('suggestion');
+
+    let found = false;
+    let closestMatch = { title: '', similarity: 0 };
+
+    for (let i = 0; i < blogs.length; i++) {
+      const title = blogs[i].getElementsByTagName('h2')[0].innerText.toLowerCase();
+      if (title.includes(input)) {
+        blogs[i].style.display = '';
+        found = true;
+      } else {
+        blogs[i].style.display = 'none';
+        // Calculate similarity score for recommendation
+        const similarity = getSimilarity(input, title);
+        if (similarity > closestMatch.similarity) {
+          closestMatch = { title: blogs[i].getElementsByTagName('h2')[0].innerText, similarity };
+        }
+      }
+    }
+
+    if (!found && input.trim() !== '') {
+      noMatchMessage.style.display = 'block';
+      suggestion.innerText = closestMatch.title || 'No suggestions available';
+    } else {
+      noMatchMessage.style.display = 'none';
+    }
+  }
+
+  function getSimilarity(input, title) {
+    const inputWords = input.split(' ');
+    const titleWords = title.split(' ');
+    let matchCount = 0;
+
+    inputWords.forEach(word => {
+      if (titleWords.includes(word)) {
+        matchCount++;
+      }
+    });
+
+    return matchCount / Math.max(inputWords.length, titleWords.length);
+  }
+</script>
