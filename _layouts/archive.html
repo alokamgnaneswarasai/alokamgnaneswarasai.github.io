@@ -34,10 +34,10 @@ layout: default
           <span>Written on {{ post.date | date: "%B %e, %Y" }}</span> | 
           <span>Reading time: {{ post.content | number_of_words | divided_by: 200 | ceil }} min read</span>
         </div>
-        <div class="tags" style="margin-top: 10px; font-size: 0.9em; color: #555;">
+        <div class="tags" style="margin-top: 10px; font-size: 0.9em; color: #555; display: flex; flex-wrap: wrap; gap: 5px;">
           Tags: 
           {% for tag in post.tags %}
-            <a href="#" class="tag-link" data-tag="{{ tag }}" style="background-color: #d3d3d3; padding: 5px 10px; border-radius: 5px; margin-right: 5px; text-decoration: none; color: #333;">{{ tag }}</a>
+            <a href="#" class="tag-link" data-tag="{{ tag }}" style="background-color: #d3d3d3; padding: 5px 10px; border-radius: 5px; text-decoration: none; color: #333;">{{ tag }}</a>
           {% endfor %}
         </div>
         <a href="{{ post.url }}" style="display: inline-block; margin-top: 10px; font-weight: bold; color: #007BFF; text-decoration: none;">Read more →</a>
