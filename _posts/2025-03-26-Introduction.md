@@ -6,7 +6,7 @@ tags: [linear algebra, vectors, mathematics]
 <!-- {%- include mathjax.html -%} -->
 
 
-### Table of Contents
+<!-- ### Table of Contents
 - [Definition of a Vector](#definition-of-a-vector)
   - [Column Vector](#column-vector)
   - [Row Vector](#row-vector)
@@ -29,7 +29,7 @@ tags: [linear algebra, vectors, mathematics]
 - [Dot Product of Two Vectors](#dot-product-of-two-vectors)
     - [Steps](#steps)
 - [Unit Vectors](#unit-vectors)
-- [Hello](#hello)
+- [Hello](#hello) -->
 
 ## Definition of a Vector
 

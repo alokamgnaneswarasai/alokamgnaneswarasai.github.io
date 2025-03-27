@@ -5,6 +5,18 @@ layout: default
 <article class="post">
   <h1>{{ page.title }}</h1>
 
+  <!-- Table of Contents -->
+  <div class="toc" style="margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; padding: 15px; background-color: #f9f9f9; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+    <details>
+      <summary accesskey="c" title="(Alt + C)" style="cursor: pointer; font-weight: bold; color: #333;">
+        <span class="details">Table of Contents</span>
+      </summary>
+      <div class="inner" style="margin-top: 10px;">
+        <ul id="tocList" style="list-style: disc; padding-left: 20px; margin: 0;"></ul>
+      </div>
+    </details>
+  </div>
+
   <div class="entry">
     {{ content }}
   </div>
@@ -15,4 +27,22 @@ layout: default
 
   {% include disqus.html %}
 </article>
+
+<script>
+  // Generate Table of Contents
+  document.addEventListener('DOMContentLoaded', function () {
+    const tocList = document.getElementById('tocList');
+    const headers = document.querySelectorAll('.entry h1, .entry h2, .entry h3, .entry h4, .entry h5, .entry h6');
+
+    headers.forEach(header => {
+      const id = header.id || header.innerText.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+      header.id = id;
+
+      const li = document.createElement('li');
+      li.style.marginLeft = `${(parseInt(header.tagName[1]) - 1) * 20}px`; // Indent based on header level
+      li.innerHTML = `<a href="#${id}" aria-label="${header.innerText}" style="text-decoration: none; color: #007BFF;">${header.innerText}</a>`;
+      tocList.appendChild(li);
+    });
+  });
+</script>
 
