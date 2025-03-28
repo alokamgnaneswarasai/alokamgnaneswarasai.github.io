@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="archive">
-  <h1 style="text-align: center; margin-bottom: 30px;">Archive</h1>
+  <!-- <h1 style="text-align: center; margin-bottom: 30px;">Archive</h1> -->
   
   <!-- Introduction Section -->
   <div style="text-align: center; margin-bottom: 30px; font-family: Arial, sans-serif;">
@@ -27,16 +27,20 @@ layout: default
   </div>
 
   <!-- Blog List -->
-  <div class="blog-list" id="blogList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+  <div class="blog-list" id="blogList" style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+
     {% for post in site.posts %}
       <div class="blog-item" data-tags="{{ post.tags | join: ',' }}" style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;">
-        <h2 style="margin: 0 0 10px;"><a href="{{ post.url }}" style="text-decoration: none; color: #333;">{{ post.title }}</a></h2>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <h2 style="margin: 0;"><a href="{{ post.url }}" style="text-decoration: none; color: #333;">{{ post.title }}</a></h2>
+          <a href="{{ post.url }}" style="text-decoration: none; color: #007BFF; font-weight: bold;">Read More →</a>
+        </div>
         <div class="meta" style="font-size: 0.9em; color: #777; margin-bottom: 15px;">
           <span>Written on {{ post.date | date: "%B %e, %Y" }}</span> | 
           <span>Reading time: {{ post.content | number_of_words | divided_by: 200 | ceil }} min read</span>
         </div>
         <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">
-            {{ post.excerpt | strip_html | truncate: 150 }}
+            {{ post.excerpt | strip_html | truncate: 230 }}
           </p>
         <div class="tags" style="margin-top: 10px; font-size: 0.9em; color: #555; display: flex; flex-wrap: wrap; gap: 5px;">
           Tags: 
@@ -44,7 +48,6 @@ layout: default
             <a href="#" class="tag-link" data-tag="{{ tag }}" style="background-color: #d3d3d3; padding: 5px 10px; border-radius: 5px; text-decoration: none; color: #333;">{{ tag }}</a>
           {% endfor %}
         </div>
-        <a href="{{ post.url }}" style="display: inline-block; margin-top: 10px; font-weight: bold; color: #007BFF; text-decoration: none;">Read more →</a>
       </div>
     {% endfor %}
   </div>

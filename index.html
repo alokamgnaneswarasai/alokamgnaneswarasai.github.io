@@ -5,15 +5,9 @@ title: Archive
 
 <div class="posts">
   {% for post in site.posts %}
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    <article class="post" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h1 style="margin: 0;"><a href="{{ site.baseurl }}{{ post.url }}" style="text-decoration: none; color: #333;">{{ post.title }}</a></h1>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more" style="text-decoration: none; color: #007BFF; font-weight: bold;">Read More →</a>
     </article>
   {% endfor %}
 </div>

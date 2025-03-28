@@ -22,11 +22,18 @@ layout: default
   </div>
 
   <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
+    Written on {{ page.date | date: "%B %e, %Y" }} by {{ page.author }}
   </div>
 
   {% include disqus.html %}
 </article>
+
+<style>
+  /* Enable smooth scrolling for the entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
 
 <script>
   // Generate Table of Contents
