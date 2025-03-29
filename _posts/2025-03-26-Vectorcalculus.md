@@ -4,10 +4,7 @@ title: Introduction to multi variate calculus
 tags: [calculus,Multi Variate, Hessian,gradient]
 author: Gnaneswara Sai
 ---
-<!-- {%- include mathjax.html -%} -->
 
-
-<!--more-->
 # The Role of Calculus in Machine and Deep Learning
 
 ## Why Calculus Matters in Machine and Deep Learning
