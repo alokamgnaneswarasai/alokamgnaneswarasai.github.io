@@ -101,21 +101,6 @@ A function is differentiable at \( x = a \) if its derivative exists there—i.e
 
 Since $ -1 \neq 1 $, the derivative doesn’t exist at \( x = 0 \), despite continuity.
 
-### Key Difference
-Continuity is about the function’s value matching its limit; differentiability is about the smoothness of that transition, requiring a consistent slope.
-
-## Properties of Derivatives (Univariate Case)
-
-For a differentiable function $ f(x) $, here are key properties:
-1. **Linearity**: If $ g(x) = af(x) + bg(x) $, then $ g'(x) = af'(x) + bg'(x) $ (where $ a, b $ are constants).
-2. **Product Rule**: If $ h(x) = f(x)g(x) $, then $ h'(x) = f'(x)g(x) + f(x)g'(x) $.
-3. **Quotient Rule**: If $ q(x) = \frac{f(x)}{g(x)} $ ($ g(x) \neq 0 $), then $ q'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2} $.
-4. **Chain Rule**: If $ y = f(g(x)) $, then $ \frac{dy}{dx} = f'(g(x)) \cdot g'(x) $.
-5. **Power Rule**: If $ f(x) = x^n $, then $ f'(x) = nx^{n-1} $ (for real $ n $).
-
-These rules simplify differentiation beyond the first principle, making calculus practical for ML/DL applications.
-
----
 
 ## Rules for Basic Functions
 
@@ -148,7 +133,98 @@ Here are the differentiation rules for some basic functions:
   </details>
 </div>
 
-### 2. Exponential Function
+### 2. Trigonometric Functions
+
+#### a. Sine Function
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$ \frac{d}{dx} \left( \sin(x) \right) = \cos(x) $$
+    </summary>
+    <div style="margin-top: 5px;">
+      Using the first principle:
+      $$
+      \frac{d}{dx} \left( \sin(x) \right) = \lim_{h \to 0} \frac{\sin(x + h) - \sin(x)}{h}
+      $$
+      Using the trigonometric identity:
+      $$
+      \sin(x + h) = \sin(x) \cos(h) + \cos(x) \sin(h)
+      $$
+      Substitute:
+      $$
+      = \lim_{h \to 0} \frac{\sin(x) \cos(h) + \cos(x) \sin(h) - \sin(x)}{h}
+      $$
+      Factor terms:
+      $$
+      = \lim_{h \to 0} \left[ \sin(x) \frac{\cos(h) - 1}{h} + \cos(x) \frac{\sin(h)}{h} \right]
+      $$
+      Using \( \lim_{h \to 0} \frac{\sin(h)}{h} = 1 \) and \( \lim_{h \to 0} \frac{\cos(h) - 1}{h} = 0 \):
+      $$
+      = \cos(x)
+      $$
+    </div>
+  </details>
+</div>
+
+#### b. Cosine Function
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$ \frac{d}{dx} \left( \cos(x) \right) = -\sin(x) $$
+    </summary>
+    <div style="margin-top: 5px;">
+      Using the first principle:
+      $$
+      \frac{d}{dx} \left( \cos(x) \right) = \lim_{h \to 0} \frac{\cos(x + h) - \cos(x)}{h}
+      $$
+      Using the trigonometric identity:
+      $$
+      \cos(x + h) = \cos(x) \cos(h) - \sin(x) \sin(h)
+      $$
+      Substitute:
+      $$
+      = \lim_{h \to 0} \frac{\cos(x) \cos(h) - \sin(x) \sin(h) - \cos(x)}{h}
+      $$
+      Factor terms:
+      $$
+      = \lim_{h \to 0} \left[ \cos(x) \frac{\cos(h) - 1}{h} - \sin(x) \frac{\sin(h)}{h} \right]
+      $$
+      Using \( \lim_{h \to 0} \frac{\sin(h)}{h} = 1 \) and \( \lim_{h \to 0} \frac{\cos(h) - 1}{h} = 0 \):
+      $$
+      = -\sin(x)
+      $$
+    </div>
+  </details>
+</div>
+
+#### c. Tangent Function
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$ \frac{d}{dx} \left( \tan(x) \right) = \sec^2(x) $$
+    </summary>
+    <div style="margin-top: 5px;">
+      Using the identity \( \tan(x) = \frac{\sin(x)}{\cos(x)} \), apply the quotient rule:
+      $$
+      \frac{d}{dx} \left( \tan(x) \right) = \frac{\cos(x) \cdot \frac{d}{dx} \sin(x) - \sin(x) \cdot \frac{d}{dx} \cos(x)}{\cos^2(x)}
+      $$
+      Substitute \( \frac{d}{dx} \sin(x) = \cos(x) \) and \( \frac{d}{dx} \cos(x) = -\sin(x) \):
+      $$
+      = \frac{\cos(x) \cdot \cos(x) - \sin(x) \cdot (-\sin(x))}{\cos^2(x)}
+      $$
+      Simplify:
+      $$
+      = \frac{\cos^2(x) + \sin^2(x)}{\cos^2(x)}
+      $$
+      Using the Pythagorean identity \( \sin^2(x) + \cos^2(x) = 1 \):
+      $$
+      = \frac{1}{\cos^2(x)} = \sec^2(x)
+      $$
+    </div>
+  </details>
+</div>
+
+### 3. Exponential Function
 <div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
   <details>
     <summary style="cursor: pointer; font-weight: bold; color: #333;">
@@ -171,7 +247,7 @@ Here are the differentiation rules for some basic functions:
   </details>
 </div>
 
-### 3. Logarithmic Function
+### 4. Logarithmic Function
 <div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
   <details>
     <summary style="cursor: pointer; font-weight: bold; color: #333;">
@@ -198,7 +274,7 @@ Here are the differentiation rules for some basic functions:
   </details>
 </div>
 
-### 4. Inverse Trigonometric Functions
+### 5. Inverse Trigonometric Functions
 
 #### a. Arcsine Function
 <div class="equation-box" style="border: 1px solid #ddd; border-radius: 1px; padding: 1px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 5px;">
@@ -274,24 +350,24 @@ Here are the differentiation rules for some basic functions:
 ## Rules for Combined Functions
 
 ### 1. Constant Rule
-<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 1px;">
   <details>
     <summary style="cursor: pointer; font-weight: bold; color: #333;">
       $$ \frac{d}{dx} \left( c \right) = 0 $$
     </summary>
-    <div style="margin-top: 5px;">
+    <div style="margin-top: 0px;">     
       The derivative of a constant is always zero because a constant does not change with respect to \( x \).
     </div>
   </details>
 </div>
 
 ### 2. Sum Rule
-<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 1px;">
   <details>
     <summary style="cursor: pointer; font-weight: bold; color: #333;">
       $$ \frac{d}{dx} \left( f(x) + g(x) \right) = f'(x) + g'(x) $$
     </summary>
-    <div style="margin-top: 5px;">
+    <div style="margin-top: 0px;">
       Using the first principle:
       $$
       \frac{d}{dx} \left( f(x) + g(x) \right) = \lim_{h \to 0} \frac{[f(x + h) + g(x + h)] - [f(x) + g(x)]}{h}
@@ -352,11 +428,39 @@ Here are the differentiation rules for some basic functions:
       $$
       Simplify:
       $$
-      = \lim_{h \to 0} \frac{f(x + h) g(x) - f(x) g(x + h)}{h g(x + h) g(x)}
+      = \lim_{h \to 0} \frac{f(x + h) g(x) - f(x) g(x + h)}{h \cdot g(x + h) \cdot g(x)}
       $$
-      Factor terms and apply limits:
+      Expand \( f(x + h) \) and \( g(x + h) \) using their Taylor expansions:
+      $$
+      f(x + h) = f(x) + h f'(x) + \dots, \quad g(x + h) = g(x) + h g'(x) + \dots
+      $$
+      Substitute into the numerator:
+      $$
+      f(x + h) g(x) - f(x) g(x + h) = \left[ f(x) + h f'(x) \right] g(x) - f(x) \left[ g(x) + h g'(x) \right]
+      $$
+      Expand terms:
+      $$
+      = f(x) g(x) + h f'(x) g(x) - f(x) g(x) - h f(x) g'(x)
+      $$
+      Simplify:
+      $$
+      = h \left[ f'(x) g(x) - f(x) g'(x) \right]
+      $$
+      Substitute back into the limit:
+      $$
+      \frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = \lim_{h \to 0} \frac{h \left[ f'(x) g(x) - f(x) g'(x) \right]}{h \cdot g(x + h) \cdot g(x)}
+      $$
+      Cancel \( h \) in the numerator and denominator:
+      $$
+      = \lim_{h \to 0} \frac{f'(x) g(x) - f(x) g'(x)}{g(x + h) \cdot g(x)}
+      $$
+      As \( h \to 0 \), \( g(x + h) \to g(x) \):
       $$
       = \frac{f'(x) g(x) - f(x) g'(x)}{g(x)^2}
+      $$
+      Thus, the quotient rule is proved:
+      $$
+      \boxed{\frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = \frac{f'(x) g(x) - f(x) g'(x)}{g(x)^2}}
       $$
     </div>
   </details>
