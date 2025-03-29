@@ -98,7 +98,6 @@ A function is differentiable at \( x = a \) if its derivative exists there—i.e
 
 Since $ -1 \neq 1 $, the derivative doesn’t exist at \( x = 0 \), despite continuity.
 
-
 ## Rules for Basic Functions
 
 Here are the differentiation rules for some basic functions:
@@ -415,47 +414,37 @@ Here are the differentiation rules for some basic functions:
       $$ \frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = \frac{f'(x) g(x) - f(x) g'(x)}{g(x)^2} $$
     </summary>
     <div style="margin-top: 10px;">
-      Using the first principle:
+      To derive the quotient rule, we first compute the derivative of \( \frac{1}{g(x)} \) and then use the product rule.
+
+      #### Step 1: Derivative of \( \frac{1}{g(x)} \)
+      Let \( h(x) = \frac{1}{g(x)} \). Using the chain rule:
       $$
-      \frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = \lim_{h \to 0} \frac{\frac{f(x + h)}{g(x + h)} - \frac{f(x)}{g(x)}}{h}
+      h'(x) = \frac{d}{dx} \left( g(x)^{-1} \right) = -g(x)^{-2} \cdot g'(x)
       $$
-      Combine fractions:
+      Thus:
       $$
-      = \lim_{h \to 0} \frac{\frac{f(x + h) g(x) - f(x) g(x + h)}{g(x + h) g(x)}}{h}
+      \frac{d}{dx} \left( \frac{1}{g(x)} \right) = -\frac{g'(x)}{g(x)^2}
+      $$
+
+      #### Step 2: Use the Product Rule
+      Let \( q(x) = \frac{f(x)}{g(x)} = f(x) \cdot \frac{1}{g(x)} \). Using the product rule:
+      $$
+      \frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = \frac{d}{dx} \left( f(x) \cdot \frac{1}{g(x)} \right)
+      $$
+      Apply the product rule:
+      $$
+      \frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = f'(x) \cdot \frac{1}{g(x)} + f(x) \cdot \frac{d}{dx} \left( \frac{1}{g(x)} \right)
+      $$
+      Substitute \( \frac{d}{dx} \left( \frac{1}{g(x)} \right) = -\frac{g'(x)}{g(x)^2} \):
+      $$
+      \frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = \frac{f'(x)}{g(x)} - f(x) \cdot \frac{g'(x)}{g(x)^2}
       $$
       Simplify:
       $$
-      = \lim_{h \to 0} \frac{f(x + h) g(x) - f(x) g(x + h)}{h \cdot g(x + h) \cdot g(x)}
+      \frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = \frac{f'(x) g(x) - f(x) g'(x)}{g(x)^2}
       $$
-      Expand \( f(x + h) \) and \( g(x + h) \) using their Taylor expansions:
-      $$
-      f(x + h) = f(x) + h f'(x) + \dots, \quad g(x + h) = g(x) + h g'(x) + \dots
-      $$
-      Substitute into the numerator:
-      $$
-      f(x + h) g(x) - f(x) g(x + h) = \left[ f(x) + h f'(x) \right] g(x) - f(x) \left[ g(x) + h g'(x) \right]
-      $$
-      Expand terms:
-      $$
-      = f(x) g(x) + h f'(x) g(x) - f(x) g(x) - h f(x) g'(x)
-      $$
-      Simplify:
-      $$
-      = h \left[ f'(x) g(x) - f(x) g'(x) \right]
-      $$
-      Substitute back into the limit:
-      $$
-      \frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = \lim_{h \to 0} \frac{h \left[ f'(x) g(x) - f(x) g'(x) \right]}{h \cdot g(x + h) \cdot g(x)}
-      $$
-      Cancel \( h \) in the numerator and denominator:
-      $$
-      = \lim_{h \to 0} \frac{f'(x) g(x) - f(x) g'(x)}{g(x + h) \cdot g(x)}
-      $$
-      As \( h \to 0 \), \( g(x + h) \to g(x) \):
-      $$
-      = \frac{f'(x) g(x) - f(x) g'(x)}{g(x)^2}
-      $$
-      Thus, the quotient rule is proved:
+
+      Thus, the quotient rule is derived:
       $$
       \boxed{\frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = \frac{f'(x) g(x) - f(x) g'(x)}{g(x)^2}}
       $$
@@ -487,3 +476,228 @@ Here are the differentiation rules for some basic functions:
 </div>
 
 ---
+
+## Local Minima and Local Maxima
+
+### Local Minima
+A function $f(x)$ has a **local minimum** at $x = c$ if:
+1. $f(c)$ is defined.
+2. There exists an interval $(a, b)$ containing $c$ such that $f(c) \leq f(x)$ for all $x \in (a, b)$.
+
+In simpler terms, $f(c)$ is smaller than or equal to the values of $f(x)$ in a small neighborhood around $c$.
+
+### Local Maxima
+A function $f(x)$ has a **local maximum** at $x = c$ if:
+1. $f(c)$ is defined.
+2. There exists an interval $(a, b)$ containing $c$ such that $f(c) \geq f(x)$ for all $x \in (a, b)$.
+
+In simpler terms, $f(c)$ is greater than or equal to the values of $f(x)$ in a small neighborhood around $c$.
+
+---
+
+## First Derivative Test
+
+The **first derivative test** helps determine whether a critical point is a local minimum, local maximum, or neither.
+
+### Steps:
+1. Find the critical points of $f(x)$ by solving $f'(x) = 0$ or where $f'(x)$ is undefined.
+2. Analyze the sign of $f'(x)$ on intervals around each critical point:
+   - If $f'(x)$ changes from positive to negative at $x = c$, then $f(c)$ is a **local maximum**.
+   - If $f'(x)$ changes from negative to positive at $x = c$, then $f(c)$ is a **local minimum**.
+   - If $f'(x)$ does not change sign, then $x = c$ is neither a local minimum nor a local maximum.
+
+---
+
+### Fermat's Theorem (Proof)
+
+**Statement**: If $f(x)$ has a local extremum (minimum or maximum) at $x = c$ and $f'(c)$ exists, then $f'(c) = 0$.
+
+#### Proof:
+1. Suppose $f(x)$ has a local maximum at $x = c$.
+2. By definition, there exists an interval $(a, b)$ such that $f(c) \geq f(x)$ for all $x \in (a, b)$.
+3. Consider the derivative definition:
+   $$
+   f'(c) = \lim_{h \to 0} \frac{f(c + h) - f(c)}{h}
+   $$
+4. For $h > 0$, $f(c + h) \leq f(c)$, so:
+   $$
+   \frac{f(c + h) - f(c)}{h} \leq 0
+   $$
+5. For $h < 0$, $f(c + h) \leq f(c)$, so:
+   $$
+   \frac{f(c + h) - f(c)}{h} \geq 0
+   $$
+6. Taking the limit as $h \to 0$ from both sides:
+   $$
+   \lim_{h \to 0^+} \frac{f(c + h) - f(c)}{h} \leq 0 \quad \text{and} \quad \lim_{h \to 0^-} \frac{f(c + h) - f(c)}{h} \geq 0
+   $$
+7. Since the derivative exists, the left-hand and right-hand limits are equal:
+   $$
+   f'(c) = 0
+   $$
+
+The same reasoning applies for a local minimum. Hence, Fermat's theorem is proved.
+
+---
+
+## Second Derivative Test
+
+The **second derivative test** provides another way to classify critical points. Critical points are obtained from the **first derivative test**, where $$ f'(x) = 0 $$ or $$ f'(x) $$ is undefined.
+
+### Explanation:
+The basis of the second derivative test is that:
+1. If $$ f'(x) $$ changes from **positive to negative** at a critical point $$ x = c $$, then $$ f(x) $$ has a **local maximum** at $$ x = c $$.
+2. If $$ f'(x) $$ changes from **negative to positive** at a critical point $$ x = c $$, then $$ f(x) $$ has a **local minimum** at $$ x = c $$.
+
+The second derivative $$ f''(x) $$ provides additional information:
+- If $$ f''(c) < 0 $$, then $$ f'(x) $$ is **decreasing** at $$ x = c $$, confirming a **local maximum**.
+- If $$ f''(c) > 0 $$, then $$ f'(x) $$ is **increasing** at $$ x = c $$, confirming a **local minimum**.
+- If $$ f''(c) = 0 $$, the second derivative test is **inconclusive**, and higher-order derivatives may be needed.
+
+### Steps:
+1. Find the critical points of $$ f(x) $$ by solving $$ f'(x) = 0 $$ or where $$ f'(x) $$ is undefined.
+2. Compute the second derivative $$ f''(x) $$ at each critical point:
+   - If $$ f''(c) > 0 $$, then $$ f(c) $$ is a **local minimum** (concave up).
+   - If $$ f''(c) < 0 $$, then $$ f(c) $$ is a **local maximum** (concave down).
+   - If $$ f''(c) = 0 $$, the test is inconclusive, and higher-order derivatives may be needed.
+
+---
+
+### When Higher-Order Derivatives Are Needed
+
+If $$ f''(c) = 0 $$, the second derivative test does not provide information about the critical point. In such cases, we examine higher-order derivatives.
+
+#### Case 1: Higher-Order Derivative Determines the Nature of the Critical Point
+If the $$ n $$-th derivative $$ f^{(n)}(c) \neq 0 $$ for the smallest $$ n > 2 $$:
+- If $$ n $$ is **odd**, the critical point is a **point of inflection** (neither a maximum nor a minimum).
+- If $$ n $$ is **even**:
+  - If $$ f^{(n)}(c) > 0 $$, then $$ f(c) $$ is a **local minimum**.
+  - If $$ f^{(n)}(c) < 0 $$, then $$ f(c) $$ is a **local maximum**.
+
+#### Case 2: Example of Higher-Order Derivatives
+1. **Example 1: $$ f(x) = x^4 $$**
+   - $$ f'(x) = 4x^3 $$, so $$ f'(x) = 0 $$ at $$ x = 0 $$.
+   - $$ f''(x) = 12x^2 $$, so $$ f''(0) = 0 $$ (inconclusive).
+   - $$ f^{(4)}(x) = 24 $$, so $$ f^{(4)}(0) > 0 $$.
+   - Since the fourth derivative is positive, $$ f(x) $$ has a **local minimum** at $$ x = 0 $$.
+
+2. **Example 2: $$ f(x) = x^3 $$**
+   - $$ f'(x) = 3x^2 $$, so $$ f'(x) = 0 $$ at $$ x = 0 $$.
+   - $$ f''(x) = 6x $$, so $$ f''(0) = 0 $$ (inconclusive).
+   - $$ f^{(3)}(x) = 6 $$, so $$ f^{(3)}(0) \neq 0 $$.
+   - Since the third derivative is nonzero, $$ x = 0 $$ is a **point of inflection**.
+
+---
+
+### Summary of the Second Derivative Test and Higher-Order Derivatives
+- The **second derivative test** is a quick way to classify critical points when $$ f''(x) \neq 0 $$.
+- When $$ f''(x) = 0 $$, higher-order derivatives are needed to determine the nature of the critical point.
+- Higher-order derivatives provide additional insights into the behavior of the function near the critical point.
+
+---
+
+## Least Squares Optimization
+
+The **least squares method** minimizes the error between observed data points and a model. Assume we have a single-dimensional input $x$ and a target output $y$, and we optimize the least squares error.
+
+### Objective Function
+The least squares objective function is:
+
+$$
+L(w) = \sum_{i=1}^n \left( y_i - f(x_i; w) \right)^2
+$$
+
+For a linear model $f(x; w) = wx$, the objective function simplifies to:
+
+$$
+L(w) = \sum_{i=1}^n \left( y_i - wx_i \right)^2
+$$
+
+### First Derivative
+To find the optimal $w$, we compute:
+
+$$
+\begin{aligned}
+\frac{dL(w)}{dw} &= \frac{d}{dw} \sum_{i=1}^n \left( y_i - wx_i \right)^2 \\
+&= \sum_{i=1}^n 2 \left( y_i - wx_i \right) (-x_i) \\
+&= -2 \sum_{i=1}^n x_i \left( y_i - wx_i \right) \\
+&= -2 \sum_{i=1}^n x_i y_i + 2w \sum_{i=1}^n x_i^2 \\
+&= 2w \sum_{i=1}^n x_i^2 - 2 \sum_{i=1}^n x_i y_i
+\end{aligned}
+$$
+
+### Critical Point
+Setting the first derivative to zero:
+
+$$
+\begin{aligned}
+2w \sum_{i=1}^n x_i^2 - 2 \sum_{i=1}^n x_i y_i &= 0 \\
+w &= \frac{\sum_{i=1}^n x_i y_i}{\sum_{i=1}^n x_i^2}
+\end{aligned}
+$$
+
+### Second Derivative
+$$
+\begin{aligned}
+\frac{d^2L(w)}{dw^2} &= \frac{d}{dw} \left( 2w \sum_{i=1}^n x_i^2 - 2 \sum_{i=1}^n x_i y_i \right) \\
+&= 2 \sum_{i=1}^n x_i^2
+\end{aligned}
+$$
+
+Since $\sum_{i=1}^n x_i^2 \geq 0$, the second derivative is positive, confirming that $w^*$ is a **minimum**.
+
+### Optimal Point
+$$
+w^* = \frac{\sum_{i=1}^n x_i y_i}{\sum_{i=1}^n x_i^2}
+$$
+
+---
+### Optimal Loss Value
+Substituting $w^*$ into the loss function:
+
+$$
+\begin{aligned}
+L(w^*) &= \sum_{i=1}^n \left( y_i - w^* x_i \right)^2 \\
+&= \sum_{i=1}^n \left( y_i - \frac{\sum_{j=1}^n x_j y_j}{\sum_{j=1}^n x_j^2} x_i \right)^2
+\end{aligned}
+$$
+
+Expanding:
+
+$$
+\begin{aligned}
+L(w^*) &= \sum_{i=1}^n \left( y_i^2 - 2 y_i \cdot \frac{\sum_{j=1}^n x_j y_j}{\sum_{j=1}^n x_j^2} x_i + \left( \frac{\sum_{j=1}^n x_j y_j}{\sum_{j=1}^n x_j^2} x_i \right)^2 \right)
+\end{aligned}
+$$
+
+Splitting the summation:
+
+$$
+\begin{aligned}
+L(w^*) &= \sum_{i=1}^n y_i^2 - 2 \frac{\sum_{j=1}^n x_j y_j}{\sum_{j=1}^n x_j^2} \sum_{i=1}^n x_i y_i + \sum_{i=1}^n \left( \frac{\sum_{j=1}^n x_j y_j}{\sum_{j=1}^n x_j^2} x_i \right)^2
+\end{aligned}
+$$
+
+Factoring out the squared term:
+
+$$
+\begin{aligned}
+\sum_{i=1}^n \left( \frac{\sum_{j=1}^n x_j y_j}{\sum_{j=1}^n x_j^2} x_i \right)^2 &= \frac{\left(\sum_{j=1}^n x_j y_j\right)^2}{\left(\sum_{j=1}^n x_j^2\right)^2} \sum_{i=1}^n x_i^2
+\end{aligned}
+$$
+
+Since $\sum_{i=1}^n x_i^2$ appears in the denominator:
+
+$$
+\begin{aligned}
+L(w^*) &= \sum_{i=1}^n y_i^2 - \frac{\left( \sum_{i=1}^n x_i y_i \right)^2}{\sum_{i=1}^n x_i^2}
+\end{aligned}
+$$
+
+This represents the minimized loss after optimizing $w$. It shows how much error remains after the best-fit parameter is chosen.
+### Summary
+- The first derivative gives the critical point $w^*$.
+- The second derivative confirms that $w^*$ is a **minimum** because it is positive.
+- The least squares method minimizes the error between the observed and predicted values.
+
+
