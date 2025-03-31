@@ -264,14 +264,14 @@ Let $A$, $x$, and $f(x)$ be represented as follows:
 
 ---
 
-### Proof: $ \frac{\partial}{\partial x}(Ax) = A $
+<!-- ### Proof: $ \frac{\partial}{\partial x}(Ax) = A $ -->
 
 
 
 <div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
   <details>
     <summary style="cursor: pointer; font-weight: bold; color: #333;">
-      Click to view the proof
+      $$ \frac{\partial}{\partial x}(Ax) = A $$
     </summary>
     <div style="margin-top: 5px;">
       Let $ A \in \mathbb{R}^{m \times n} $ and $ x \in \mathbb{R}^n $. The function $ f(x) = Ax $ is defined as:
@@ -332,16 +332,17 @@ Let $A$, $x$, and $f(x)$ be represented as follows:
 
 ---
 
-### Proof: $\frac{\partial}{\partial x} (\mathbf{u} \cdot \mathbf{v}) = \mathbf{u}^\top \frac{\partial \mathbf{v}}{\partial x} + \mathbf{v}^\top \frac{\partial \mathbf{u}}{\partial x}$ where  $ \mathbf{u} = \mathbf{u}(x) \in \mathbb{R}^n $ and $ \mathbf{v} = \mathbf{v}(x) \in \mathbb{R}^n $
+<!-- ### Proof: $\frac{\partial}{\partial x} (\mathbf{u} \cdot \mathbf{v}) = \mathbf{u}^\top \frac{\partial \mathbf{v}}{\partial x} + \mathbf{v}^\top \frac{\partial \mathbf{u}}{\partial x}$ where  $ \mathbf{u} = \mathbf{u}(x) \in \mathbb{R}^n $ and $ \mathbf{v} = \mathbf{v}(x) \in \mathbb{R}^n $ -->
 
 
 
 <div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
   <details>
     <summary style="cursor: pointer; font-weight: bold; color: #333;">
-      Click to view the proof
+      $$\frac{\partial}{\partial x} (\mathbf{u} \cdot \mathbf{v}) = \mathbf{u}^\top \frac{\partial \mathbf{v}}{\partial x} + \mathbf{v}^\top \frac{\partial \mathbf{u}}{\partial x} $$
     </summary>
-    <div style="margin-top: 5px;">
+    <div style="margin-top: 10px;">
+
       Let $ \mathbf{u} = \mathbf{u}(x) \in \mathbb{R}^n $ and $ \mathbf{v} = \mathbf{v}(x) \in \mathbb{R}^n $. The dot product $ \mathbf{u} \cdot \mathbf{v} $ is defined as:
 
 $$
