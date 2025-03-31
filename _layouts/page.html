@@ -10,3 +10,16 @@ layout: default
     {{ content }}
   </div>
 </article>
+
+<!-- Reading Progress Bar -->
+<div id="progressBar" style="position: fixed; top: 0; left: 0; height: 5px; background-color: #007BFF; width: 0%; z-index: 1000;"></div>
+
+<script>
+  const progressBar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    progressBar.style.width = progress + '%';
+  });
+</script>

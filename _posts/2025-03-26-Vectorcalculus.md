@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Introduction to multi variate calculus
-tags: [calculus,Multi Variate, Hessian,gradient]
+title: Introduction to Univariate calculus
+tags: [calculus,differentiation,minima,maxima,inflection]
 author: Gnaneswara Sai
 ---
 
@@ -600,17 +600,18 @@ If the $$ n $$-th derivative $$ f^{(n)}(c) \neq 0 $$ for the smallest $$ n > 2 $
 
 The **least squares method** minimizes the error between observed data points and a model. Assume we have a single-dimensional input $x$ and a target output $y$, and we optimize the least squares error.
 
-### Objective Function
-The least squares objective function is:
+### Objective Function  
+
+The least squares objective function is:  
 
 $$
-L(w) = \sum_{i=1}^n \left( y_i - f(x_i; w) \right)^2
+\min_w L(w) = \sum_{i=1}^n \left( y_i - f(x_i; w) \right)^2
 $$
 
-For a linear model $f(x; w) = wx$, the objective function simplifies to:
+For a linear model $f(x; w) = wx$, the objective simplifies to:  
 
 $$
-L(w) = \sum_{i=1}^n \left( y_i - wx_i \right)^2
+\min_w L(w) = \sum_{i=1}^n \left( y_i - wx_i \right)^2
 $$
 
 ### First Derivative
@@ -700,4 +701,158 @@ This represents the minimized loss after optimizing $w$. It shows how much error
 - The second derivative confirms that $w^*$ is a **minimum** because it is positive.
 - The least squares method minimizes the error between the observed and predicted values.
 
+-------------
+## Some of the applications of derivatives
+## 1. Finding Minima and Maxima
 
+Derivatives are widely used to optimize functions by locating their minimum or maximum values. 
+
+### Example: Minimize the Perimeter of a Rectangle Given Its Area
+
+- **Problem Statement**: A rectangle has a fixed area of 100 square units. Find the dimensions that minimize its perimeter.
+- **Step-by-Step Solution**:
+  1. **Define Variables and Functions**:
+     - Let $l$ be the length and $w$ be the width.
+     - Area: $l \cdot w = 100$.
+     - Perimeter: $P = 2l + 2w$.
+  2. **Express Perimeter in One Variable**:
+     - Solve for $w$ from the area:  
+       $$ w = \frac{100}{l} $$
+     - Substitute into the perimeter:  
+       $$ P(l) = 2l + 2 \cdot \frac{100}{l} = 2l + \frac{200}{l} $$
+  3. **Take the Derivative**:
+     - Compute $P'(l)$:  
+       $$ P'(l) = \frac{d}{dl} \left( 2l + \frac{200}{l} \right) = 2 - \frac{200}{l^2} $$
+  4. **Find Critical Points**:
+     - Set the derivative to zero:  
+       $$ 2 - \frac{200}{l^2} = 0 $$
+       $$ \frac{200}{l^2} = 2 $$
+       $$ l^2 = 100 $$
+       $$ l = 10 \quad (\text{since } l > 0) $$
+  5. **Find the Width**:
+     - $$ w = \frac{100}{l} = \frac{100}{10} = 10 $$
+  6. **Verify Minimum**:
+     - Second derivative:  
+       $$ P''(l) = \frac{d}{dl} \left( 2 - \frac{200}{l^2} \right) = \frac{400}{l^3} $$
+     - At $l = 10$:  
+       $$ P''(10) = \frac{400}{10^3} = 0.4 > 0 $$  
+       A positive second derivative confirms a local minimum.
+  7. **Calculate Perimeter**:
+     - $ P = 2l + 2w = 2 \cdot 10 + 2 \cdot 10 = 40 $
+
+- **Conclusion**: The minimum perimeter is 40 units when $l = w = 10$, forming a square. 
+---
+
+## 2. Finding Roots of $f(x) = 0$ Using Newton’s Method
+
+Newton’s method leverages derivatives to approximate roots of equations numerically. It’s one of the  method in optimization for solving nonlinear equations iteratively.
+
+### Detailed Explanation
+
+- **Concept**: Start with an initial guess and refine it using the tangent line’s slope (the derivative) to approach the root.
+- **Formula**:  
+  $$ x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} $$  
+  where $f'(x_n)$ is the derivative at $x_n$.
+
+### Example: Find the Root of $x^2 - 2 = 0$ (i.e., $\sqrt{2}$)
+
+- **Function**: $f(x) = x^2 - 2$.
+- **Derivative**: $f'(x) = 2x$.
+- **Step-by-Step Solution**:
+  1. **Initial Guess**: Choose $x_0 = 1$ (close to $\sqrt{2} \approx 1.414$).
+  2. **First Iteration**:
+     - $$ f(x_0) = 1^2 - 2 = -1 $$
+     - $$ f'(x_0) = 2 \cdot 1 = 2 $$
+     - $$ x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} = 1 - \frac{-1}{2} = 1 + 0.5 = 1.5 $$
+  3. **Second Iteration**:
+     - $$ f(x_1) = 1.5^2 - 2 = 2.25 - 2 = 0.25 $$
+     - $$ f'(x_1) = 2 \cdot 1.5 = 3 $$
+     - $$ x_2 = 1.5 - \frac{0.25}{3} = 1.5 - 0.08333 \approx 1.41667 $$
+  4. **Third Iteration**:
+     - $$ f(x_2) = 1.41667^2 - 2 \approx 2.00694 - 2 = 0.00694 $$
+     - $$ f'(x_2) = 2 \cdot 1.41667 \approx 2.83334 $$
+     - $$ x_3 = 1.41667 - \frac{0.00694}{2.83334} \approx 1.41667 - 0.00245 \approx 1.41422 $$
+  5. **Check Convergence**:
+     - $$ f(1.41422) \approx 1.41422^2 - 2 \approx 0.00002 $$  
+       The result is nearly zero, showing convergence to $\sqrt{2}$.
+
+- **Conclusion**: After three iterations, $x \approx 1.41421$, closely matching $\sqrt{2}$. 
+
+---
+
+## 3. Linear Approximations
+
+Derivatives enable linear approximations, approximating function values near a known point using the tangent line. This is useful for estimating values like square roots without complex computations.
+
+### Detailed Explanation
+
+- **Formula**: For a function $f(x)$, the linear approximation near $x = a$ is:  
+  $$ f(x) \approx f(a) + f'(a)(x - a) $$
+- **Application**: Approximate square roots using the nearest perfect square.
+
+### Example: Approximate $\sqrt{50}$ Using $\sqrt{49}$
+
+- **Function**: $f(x) = \sqrt{x}$.
+- **Derivative**: $f'(x) = \frac{1}{2\sqrt{x}}$.
+- **Step-by-Step Solution**:
+  1. **Choose a Nearby Point**:
+     - Use $a = 49$, since $49$ is the nearest perfect square to 50.
+  2. **Evaluate Function and Derivative**:
+     - $$ f(49) = \sqrt{49} = 7 $$
+     - $$ f'(49) = \frac{1}{2\sqrt{49}} = \frac{1}{2 \cdot 7} = \frac{1}{14} $$
+  3. **Apply Linear Approximation**:
+     - For $x = 50$:  
+       $$ f(50) \approx f(49) + f'(49)(50 - 49) $$
+       $$ f(50) \approx 7 + \frac{1}{14} \cdot 1 = 7 + \frac{1}{14} \approx 7 + 0.07143 = 7.07143 $$
+  4. **Verify Accuracy**:
+     - Actual value: $\sqrt{50} \approx 7.07107$.
+     - Error: $7.07143 - 7.07107 = 0.00036$, a small difference.
+
+- **Conclusion**: The linear approximation gives $\sqrt{50} \approx 7.07143$, very close to the actual value. 
+
+----------------
+## From Univariate to Multivariate Calculus: Introducing Partial Differentiation
+
+### Univariate Calculus: Functions from $\mathbb{R} \to \mathbb{R}$
+
+- In univariate calculus, we deal with functions of a single variable, $f: \mathbb{R} \to \mathbb{R}$, where the input is a single real number $x$ and the output is a real number $f(x)$.
+- The derivative, denoted $f'(x)$ or $\frac{df}{dx}$, measures the rate of change of $f(x)$ with respect to $x$.
+- **Example**: For $f(x) = x^2$:
+  - $$ f'(x) = \frac{d}{dx} (x^2) = 2x $$
+- This tells us how $f(x)$ changes as $x$ varies, useful for optimization, slopes, and rates of change in one-dimensional problems.
+
+### Multivariate Calculus:
+
+- Now consider functions with multiple variables, such as $f: \mathbb{R}^2 \to \mathbb{R}$, where the input is a pair $(x, y)$ and the output is a single real number $f(x, y)$.
+- Example: $f(x, y) = x^2 + y^2$ represents the height of a paraboloid at point $(x, y)$.
+- With two variables, the rate of change of $f(x, y)$ depends on the direction: changing $x$ while keeping $y$ fixed, or vice versa. A single derivative no longer suffices because $f$ varies across a 2D plane, not just a line.
+
+### Why Partial Differentiation is Needed
+
+- Partial differentiation extends the concept of derivatives to multivariate functions by measuring the rate of change of $f(x, y)$ with respect to one variable while holding others constant.
+- It’s essential for:
+  - Optimization in higher dimensions (e.g., minimizing cost functions in machine learning with multiple parameters).
+  - Understanding how each variable independently affects the output (e.g., in physics, how temperature changes with position).
+- Notation: $\frac{\partial f}{\partial x}$ for the partial derivative with respect to $x$, and $\frac{\partial f}{\partial y}$ for $y$.
+
+### Example: Partial Differentiation of $f(x, y) = x^2 + y^2$
+
+- **Problem Statement**: Compute the partial derivatives of $f(x, y) = x^2 + y^2$ with respect to $x$ and $y$, and interpret their meaning at the point $(1, 2)$.
+- **Mathematical Solution**:
+  1. **Partial Derivative with Respect to $x$**:
+     - Treat $y$ as a constant:  
+       $$ \frac{\partial f}{\partial x} = \frac{\partial}{\partial x} (x^2 + y^2) = 2x + 0 = 2x $$
+     - At $(x, y) = (1, 2)$:  
+       $$ \frac{\partial f}{\partial x} \bigg|_{(1, 2)} = 2 \cdot 1 = 2 $$
+  2. **Partial Derivative with Respect to $y$**:
+     - Treat $x$ as a constant:  
+       $$ \frac{\partial f}{\partial y} = \frac{\partial}{\partial y} (x^2 + y^2) = 0 + 2y = 2y $$
+     - At $(x, y) = (1, 2)$:  
+       $$ \frac{\partial f}{\partial y} \bigg|_{(1, 2)} = 2 \cdot 2 = 4 $$
+- **Interpretation**:
+  - $\frac{\partial f}{\partial x} = 2$ at $(1, 2)$: The rate of change of $f$ in the $x$-direction is 2 units per unit increase in $x$, with $y$ fixed at 2.
+  - $\frac{\partial f}{\partial y} = 4$ at $(1, 2)$: The rate of change of $f$ in the $y$-direction is 4 units per unit increase in $y$, with $x$ fixed at 1.
+- These partial derivatives describe the slopes of the tangent lines to the surface $f(x, y) = x^2 + y^2$ along the $x$ and $y$ axes at the point $(1, 2)$.
+
+
+----
