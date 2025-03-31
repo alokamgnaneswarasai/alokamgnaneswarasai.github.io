@@ -27,9 +27,13 @@ layout: default
 
   {% include disqus.html %}
 
-  <!-- Upward Arrow Button -->
-  <button id="scrollToTop" title="Go to top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000; background-color: #007BFF; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+  <!-- Upward and Downward Arrow Buttons -->
+  <button id="scrollToTop" title="Go to top" style="display: none; position: fixed; bottom: 80px; right: 20px; z-index: 1000; background-color: #007BFF; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
     ↑
+  </button>
+
+  <button id="scrollToBottom" title="Go to bottom" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000; background-color: #007BFF; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+    ↓
   </button>
 </article>
 
@@ -60,19 +64,31 @@ layout: default
     });
   });
 
-  // Show or hide the button based on scroll position
+  // Show or hide the buttons based on scroll position
   const scrollToTopButton = document.getElementById('scrollToTop');
+  const scrollToBottomButton = document.getElementById('scrollToBottom');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
       scrollToTopButton.style.display = 'block';
     } else {
       scrollToTopButton.style.display = 'none';
     }
+
+    if (window.innerHeight + window.scrollY < document.documentElement.scrollHeight - 300) {
+      scrollToBottomButton.style.display = 'block';
+    } else {
+      scrollToBottomButton.style.display = 'none';
+    }
   });
 
-  // Smooth scroll to the top when the button is clicked
+  // Smooth scroll to the top when the upward button is clicked
   scrollToTopButton.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Smooth scroll to the bottom when the downward button is clicked
+  scrollToBottomButton.addEventListener('click', () => {
+    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
   });
 
   // Update the reading progress bar
