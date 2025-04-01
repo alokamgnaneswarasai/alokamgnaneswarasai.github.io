@@ -128,7 +128,7 @@ This measures the rate of change of $f$ with respect to $x_i$ while keeping all 
 
   $$ f(x) = \begin{bmatrix} f_1(x) \\ \vdots \\ f_m(x) \end{bmatrix} \in \mathbb{R}^m $$
 
-- View $f$ as a vector of functions $[f_1, \dots, f_m]^\top$, where each $f_i: \mathbb{R}^n \to \mathbb{R}$ follows the differentiation rules from Section 5.2.
+- View $f$ as a vector of functions $[f_1, \dots, f_m]^\top$, where each $f_i: \mathbb{R}^n \to \mathbb{R}$ follows the differentiation rules as mentioned above.
 
 ### Partial Derivative with Respect to $x_i$
 
@@ -149,26 +149,6 @@ This measures the rate of change of $f$ with respect to $x_i$ while keeping all 
   
   $$ \frac{df(x)}{dx} = \left[ \frac{\partial f(x)}{\partial x_1} \quad \cdots \quad \frac{\partial f(x)}{\partial x_n} \right] $$
 
-  $$     = \begin{bmatrix} 
-  \frac{\partial f_1(x)}{\partial x_1} & \cdots & \frac{\partial f_1(x)}{\partial x_n} \\ 
-  \vdots & \ddots & \vdots \\ 
-  \frac{\partial f_m(x)}{\partial x_1} & \cdots & \frac{\partial f_m(x)}{\partial x_n} 
-  \end{bmatrix} \in \mathbb{R}^{m \times n} $$
-
-- **Definition (Jacobian)**: The Jacobian $J = \nabla_x f = \frac{df(x)}{dx}$ is an $m \times n$ matrix:  
-  
-  $$ J = \begin{bmatrix} 
-  \frac{\partial f_1(x)}{\partial x_1} & \cdots & \frac{\partial f_1(x)}{\partial x_n} \\ 
-  \vdots & \ddots & \vdots \\ 
-  \frac{\partial f_m(x)}{\partial x_1} & \cdots & \frac{\partial f_m(x)}{\partial x_n} 
-  \end{bmatrix}, \quad J(i, j) = \frac{\partial f_i}{\partial x_j} $$
-
-### Transition from Row Vector to Column Vectors in the Jacobian
-
-The Jacobian matrix is initially represented as a row vector of partial derivatives:
-
-$$\frac{df(x)}{dx} = \left[ \frac{\partial f(x)}{\partial x_1} \quad \frac{\partial f(x)}{\partial x_2} \quad \cdots \quad \frac{\partial f(x)}{\partial x_n} \right]$$
-
 Each partial derivative in the row vector is replaced by a column vector of partial derivatives for each component of the vector-valued function $f(x)$:
 
 $$\frac{\partial f(x)}{\partial x_1} = \begin{bmatrix} \frac{\partial f_1(x)}{\partial x_1} \\ \frac{\partial f_2(x)}{\partial x_1} \\ \vdots \\ \frac{\partial f_m(x)}{\partial x_1} \end{bmatrix}, \quad\frac{\partial f(x)}{\partial x_2} = \begin{bmatrix} \frac{\partial f_1(x)}{\partial x_2} \\ 
@@ -182,8 +162,9 @@ $$\frac{\partial f(x)}{\partial x_1} = \begin{bmatrix} \frac{\partial f_1(x)}{\p
 \vdots \\ 
 \frac{\partial f_m(x)}{\partial x_n} 
 \end{bmatrix}
-$$
+    $$
 
+    
 Finally, these column vectors are combined to form the Jacobian matrix:
 
 $$
@@ -195,7 +176,22 @@ $$
 \end{bmatrix} \in \mathbb{R}^{m \times n}
 $$
 
-This transition shows how the Jacobian matrix is constructed by replacing each partial derivative in the row vector with its corresponding column vector.
+
+  <!-- $$     = \begin{bmatrix} 
+  \frac{\partial f_1(x)}{\partial x_1} & \cdots & \frac{\partial f_1(x)}{\partial x_n} \\ 
+  \vdots & \ddots & \vdots \\ 
+  \frac{\partial f_m(x)}{\partial x_1} & \cdots & \frac{\partial f_m(x)}{\partial x_n} 
+  \end{bmatrix} \in \mathbb{R}^{m \times n} $$ -->
+
+- **Definition (Jacobian)**: The Jacobian $J = \nabla_x f = \frac{df(x)}{dx}$ is an $m \times n$ matrix:  
+  
+  $$ J = \begin{bmatrix} 
+  \frac{\partial f_1(x)}{\partial x_1} & \cdots & \frac{\partial f_1(x)}{\partial x_n} \\ 
+  \vdots & \ddots & \vdots \\ 
+  \frac{\partial f_m(x)}{\partial x_1} & \cdots & \frac{\partial f_m(x)}{\partial x_n} 
+  \end{bmatrix}, \quad J(i, j) = \frac{\partial f_i}{\partial x_j} $$
+
+
 
 ### Example: Jacobian of $f(x_1, x_2) = (x_1^2 x_2, x_2^2)$
 
@@ -264,11 +260,7 @@ Let $A$, $x$, and $f(x)$ be represented as follows:
 
 ---
 
-<!-- ### Proof: $ \frac{\partial}{\partial x}(Ax) = A $ -->
-
-
-
-<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+<div id="proof-derivative-Ax" class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
   <details>
     <summary style="cursor: pointer; font-weight: bold; color: #333;">
       $$ \frac{\partial}{\partial x}(Ax) = A $$
@@ -332,10 +324,6 @@ Let $A$, $x$, and $f(x)$ be represented as follows:
 
 ---
 
-<!-- ### Proof: $\frac{\partial}{\partial x} (\mathbf{u} \cdot \mathbf{v}) = \mathbf{u}^\top \frac{\partial \mathbf{v}}{\partial x} + \mathbf{v}^\top \frac{\partial \mathbf{u}}{\partial x}$ where  $ \mathbf{u} = \mathbf{u}(x) \in \mathbb{R}^n $ and $ \mathbf{v} = \mathbf{v}(x) \in \mathbb{R}^n $ -->
-
-
-
 <div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
   <details>
     <summary style="cursor: pointer; font-weight: bold; color: #333;">
@@ -343,11 +331,13 @@ Let $A$, $x$, and $f(x)$ be represented as follows:
     </summary>
     <div style="margin-top: 10px;">
 
-      Let $ \mathbf{u} = \mathbf{u}(x) \in \mathbb{R}^n $ and $ \mathbf{v} = \mathbf{v}(x) \in \mathbb{R}^n $. The dot product $ \mathbf{u} \cdot \mathbf{v} $ is defined as:
+      Let \( \mathbf{u} = \mathbf{u}(x) \in \mathbb{R}^n \) and \( \mathbf{v} = \mathbf{v}(x) \in \mathbb{R}^n \). The dot product \( \mathbf{u} \cdot \mathbf{v} \) is defined as:
 
-$$
-\mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^n u_i v_i
-$$
+      $$
+      \mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^n u_i v_i
+      $$
+
+    Step 1: 
       The derivative of \( \mathbf{u} \cdot \mathbf{v} \) with respect to \( x \) is:
 
       $$
@@ -360,22 +350,677 @@ $$
       \frac{\partial}{\partial x} (\mathbf{u} \cdot \mathbf{v}) = \sum_{i=1}^n \left( \frac{\partial u_i}{\partial x} v_i + u_i \frac{\partial v_i}{\partial x} \right)
       $$
 
-  
+      $$
+      \frac{\partial}{\partial x} (u \cdot v) = \sum_{i=1}^N \left( \frac{\partial u_i}{\partial x} v_i + u_i \frac{\partial v_i}{\partial x} \right)
+        $$
+
+        $$
+        
+        =
+        \begin{bmatrix} 
+        \sum_{i=1}^N \left( \frac{\partial u_i}{\partial x_1} v_i + u_i \frac{\partial v_i}{\partial x_1} \right) , & 
+        \sum_{i=1}^N \left( \frac{\partial u_i}{\partial x_2} v_i + u_i \frac{\partial v_i}{\partial x_2} \right) , & 
+        \cdots , & 
+        \sum_{i=1}^N \left( \frac{\partial u_i}{\partial x_M} v_i + u_i \frac{\partial v_i}{\partial x_M} \right) 
+        \end{bmatrix}
+        
+        $$
+
+        $$
+        
+        \begin{bmatrix} 
+        \sum_{i=1}^N v_i \frac{\partial u_i}{\partial x_1} + \sum_{i=1}^N u_i \frac{\partial v_i}{\partial x_1} , & 
+        \cdots , & 
+        \sum_{i=1}^N v_i \frac{\partial u_i}{\partial x_M} + \sum_{i=1}^N u_i \frac{\partial v_i}{\partial x_M} 
+        \end{bmatrix}
+        
+        $$
+        $$
+        = \begin{bmatrix} v_1 & \cdots & v_N \end{bmatrix} \begin{bmatrix} \frac{\partial u_1}{\partial x_1} & \cdots & \frac{\partial u_1}{\partial x_M} \\ \vdots & \ddots & \vdots \\ \frac{\partial u_N}{\partial x_1} & \cdots & \frac{\partial u_N}{\partial x_M} \end{bmatrix} + \begin{bmatrix} u_1 & \cdots & u_N \end{bmatrix} \begin{bmatrix} \frac{\partial v_1}{\partial x_1} & \cdots & \frac{\partial v_1}{\partial x_M} \\ \vdots & \ddots & \vdots \\ \frac{\partial v_N}{\partial x_1} & \cdots & \frac{\partial v_N}{\partial x_M} \end{bmatrix}
+        $$
+
+        $$
+        = v^\top \frac{\partial u}{\partial x} + u^\top \frac{\partial v}{\partial x}
+        $$
+
+      $$
+      \frac{\partial}{\partial x} (\mathbf{u} \cdot \mathbf{v}) = \mathbf{u}^\top \frac{\partial \mathbf{v}}{\partial x} + \mathbf{v}^\top \frac{\partial \mathbf{u}}{\partial x}
+      $$
+
+    
+      Final Result
+      The derivative of \( \mathbf{u} \cdot \mathbf{v} \) is:
+
+      $$
+      \boxed{\frac{\partial}{\partial x} (\mathbf{u} \cdot \mathbf{v}) = \mathbf{u}^\top \frac{\partial \mathbf{v}}{\partial x} + \mathbf{v}^\top \frac{\partial \mathbf{u}}{\partial x}}
+      $$
+
+
+    </div>
+  </details>
+</div>
+
+
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$\frac{\partial}{\partial x} \left( x^\top A x \right) = x^\top (A + A^\top)$$
+    </summary>
+    <div style="margin-top: 10px;">
+
+      Let $ x = \begin{bmatrix} x_1 \\ \vdots \\ x_N \end{bmatrix} \in \mathbb{R}^N $, $ A \in \mathbb{R}^{N \times N} $, and $ f(x) = x^\top A x $.  
+      $$ $$
+      The function $ f(x) $ can be rewritten as dot product of x,Ax:
+
+      $$
+      f(x) = x^\top A x = x \cdot (A x)    
+      $$
+
+      Define $ u(x) = x $ and $ v(x) = A x $. Using the product rule for derivatives:
+
+      $$
+      \frac{\partial}{\partial x} (u \cdot v) = u^\top \frac{\partial v}{\partial x} + v^\top \frac{\partial u}{\partial x}
+      $$
+
+      Compute $ \frac{\partial u}{\partial x} $
+
+      Since $ u(x) = x $, the derivative is:
+
+      $$
+      \frac{\partial u}{\partial x} = \frac{\partial x}{\partial x} = I_N
+      $$
+
+      where $ I_N $ is the $ N \times N $ identity matrix.
+
+    $$  $$
+    Compute $ \frac{\partial v}{\partial x} $
+
+      Since $ v(x) = A x $, and we already proved that :
+
+      $$
+      \frac{\partial v}{\partial x} = A
+      $$
+
+        Substituting $ u = x $, $ v = A x $, $ \frac{\partial u}{\partial x} = I_N $, and $ \frac{\partial v}{\partial x} = A $ 
+
+      $$
+      \frac{\partial}{\partial x} \left( x^\top A x \right) = x^\top \frac{\partial (A x)}{\partial x} + (A x)^\top \frac{\partial x}{\partial x}
+      $$
+
+      Simplify each term:
+
+      $$
+      \frac{\partial}{\partial x} \left( x^\top A x \right) = x^\top A + (A x)^\top I_N
+      $$
+
+      Since $ (A x)^\top = x^\top A^\top $, we have :
+
+      $$
+      \frac{\partial}{\partial x} \left( x^\top A x \right) = x^\top A + x^\top A^\top
+      $$
 
       
+      Combine the terms $ A $ and $ A^\top $:
+
+      $$
+      \frac{\partial}{\partial x} \left( x^\top A x \right) = x^\top (A + A^\top)
+      $$
+
+    Final Result
+      If $ A $ is symmetric ($ A^\top = A $), the result simplifies to:
+
+      $$
+      \frac{\partial}{\partial x} \left( x^\top A x \right) = 2 x^\top A
+      $$
+
+      Otherwise, the general result is:
+
+      $$
+      \boxed{\frac{\partial}{\partial x} \left( x^\top A x \right) = x^\top (A + A^\top)}
+      $$
+
+    </div>
+  </details>
+</div>
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$\frac{\partial}{\partial x} \left( \mathbf{u}^\top A \mathbf{v} \right) = \mathbf{u}^\top A \frac{\partial \mathbf{v}}{\partial x} + \mathbf{v}^\top A^\top \frac{\partial \mathbf{u}}{\partial x}$$
+    </summary>
+    <div style="margin-top: 10px;">
+
+      Let \( \mathbf{u} = \mathbf{u}(x) \in \mathbb{R}^N \), \( \mathbf{v} = \mathbf{v}(x) \in \mathbb{R}^N \), and \( A \in \mathbb{R}^{N \times N} \) be a constant matrix.  
+      The function \( f(x) = \mathbf{u}^\top A \mathbf{v} \) can be rewritten as:
+
+      $$
+      f(x) = \mathbf{u} \cdot (A \mathbf{v})
+      $$
+
+      Using the identity:
 
       $$
       \frac{\partial}{\partial x} (\mathbf{u} \cdot \mathbf{v}) = \mathbf{u}^\top \frac{\partial \mathbf{v}}{\partial x} + \mathbf{v}^\top \frac{\partial \mathbf{u}}{\partial x}
       $$
 
       
-      
-       Final Result
-      The derivative of \( \mathbf{u} \cdot \mathbf{v} \) is:
+      Here, \( \mathbf{u} \) remains as is, and \( \mathbf{v} \) is replaced by \( A \mathbf{v} \). Applying the identity:
 
       $$
-      \boxed{\frac{\partial}{\partial x} (\mathbf{u} \cdot \mathbf{v}) = \mathbf{u}^\top \frac{\partial \mathbf{v}}{\partial x} + \mathbf{v}^\top \frac{\partial \mathbf{u}}{\partial x}}
+      \frac{\partial}{\partial x} \left( \mathbf{u}^\top A \mathbf{v} \right) = \mathbf{u}^\top \frac{\partial (A \mathbf{v})}{\partial x} + (A \mathbf{v})^\top \frac{\partial \mathbf{u}}{\partial x}
       $$
+
+       Compute \( \frac{\partial (A \mathbf{v})}{\partial x} \)
+      Since \( A \) is constant, the derivative is:
+
+      $$
+      \frac{\partial (A \mathbf{v})}{\partial x} = A \frac{\partial \mathbf{v}}{\partial x}
+      $$
+
+       Simplify \( (A \mathbf{v})^\top \)
+      The transpose of \( A \mathbf{v} \) is:
+
+      $$
+      (A \mathbf{v})^\top = \mathbf{v}^\top A^\top
+      $$
+
+      
+      Substituting these results into the equation:
+
+      $$
+      \frac{\partial}{\partial x} \left( \mathbf{u}^\top A \mathbf{v} \right) = \mathbf{u}^\top A \frac{\partial \mathbf{v}}{\partial x} + \mathbf{v}^\top A^\top \frac{\partial \mathbf{u}}{\partial x}
+      $$
+
+      Final Result
+      The derivative of \( \mathbf{u}^\top A \mathbf{v} \) is:
+
+      $$
+      \boxed{\frac{\partial}{\partial x} \left( \mathbf{u}^\top A \mathbf{v} \right) = \mathbf{u}^\top A \frac{\partial \mathbf{v}}{\partial x} + \mathbf{v}^\top A^\top \frac{\partial \mathbf{u}}{\partial x}}
+      $$
+
     </div>
   </details>
 </div>
+
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$\frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = a \frac{\partial \mathbf{u}}{\partial \mathbf{x}}$$
+    </summary>
+    <div style="margin-top: 10px;">
+
+      Let \( a \) be a constant scalar, and \( \mathbf{u} = \mathbf{u}(\mathbf{x}) \in \mathbb{R}^N \) be a vector-valued function of \( \mathbf{x} \in \mathbb{R}^M \).  
+      The function \( f(\mathbf{x}) = a \mathbf{u}(\mathbf{x}) \) scales the vector \( \mathbf{u} \) by the constant \( a \).
+
+      
+      The derivative of \( f(\mathbf{x}) = a \mathbf{u}(\mathbf{x}) \) with respect to \( \mathbf{x} \) is defined as:
+
+      $$
+      \frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = \begin{bmatrix} 
+      \frac{\partial (a u_1)}{\partial x_1} & \cdots & \frac{\partial (a u_1)}{\partial x_M} \\ 
+      \vdots & \ddots & \vdots \\ 
+      \frac{\partial (a u_N)}{\partial x_1} & \cdots & \frac{\partial (a u_N)}{\partial x_M} 
+      \end{bmatrix}
+      $$
+
+      
+      Since \( a \) is constant, it can be factored out of the derivative:
+
+      $$
+      \frac{\partial (a u_i)}{\partial x_j} = a \frac{\partial u_i}{\partial x_j}
+      $$
+
+      Substituting this into the matrix form:
+
+      $$
+      \frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = a \begin{bmatrix} 
+      \frac{\partial u_1}{\partial x_1} & \cdots & \frac{\partial u_1}{\partial x_M} \\ 
+      \vdots & \ddots & \vdots \\ 
+      \frac{\partial u_N}{\partial x_1} & \cdots & \frac{\partial u_N}{\partial x_M} 
+      \end{bmatrix}
+      $$
+
+      
+      we can observe  that the matrix of partial derivatives is \( \frac{\partial \mathbf{u}}{\partial \mathbf{x}} \), we have:
+
+      $$
+      \frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = a \frac{\partial \mathbf{u}}{\partial \mathbf{x}}
+      $$
+
+       Final Result
+      The derivative of \( a \mathbf{u} \) with respect to \( \mathbf{x} \) is:
+
+      $$
+      \boxed{\frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = a \frac{\partial \mathbf{u}}{\partial \mathbf{x}}}
+      $$
+
+    </div>
+  </details>
+</div>
+
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$\frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \mathbf{0}, \quad \frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \mathbf{I}$$
+    </summary>
+    <div style="margin-top: 10px;">
+
+       Proof 1: \( \frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \mathbf{0} \)
+      Let \( \mathbf{a} \in \mathbb{R}^N \) be a constant vector, and \( \mathbf{x} \in \mathbb{R}^M \) be the variable vector.  
+      The derivative of \( \mathbf{a} \) with respect to \( \mathbf{x} \) is defined as:
+
+      $$
+      \frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \begin{bmatrix} 
+      \frac{\partial a_1}{\partial x_1} & \cdots & \frac{\partial a_1}{\partial x_M} \\ 
+      \vdots & \ddots & \vdots \\ 
+      \frac{\partial a_N}{\partial x_1} & \cdots & \frac{\partial a_N}{\partial x_M} 
+      \end{bmatrix}
+      $$
+
+      Since \( \mathbf{a} \) is constant, each component \( a_i \) does not depend on \( \mathbf{x} \). Therefore, all partial derivatives are zero:
+
+      $$
+      \frac{\partial a_i}{\partial x_j} = 0 \quad \forall i, j
+      $$
+
+      Substituting this into the matrix form:
+
+      $$
+      \frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \begin{bmatrix} 
+      0 & \cdots & 0 \\ 
+      \vdots & \ddots & \vdots \\ 
+      0 & \cdots & 0 
+      \end{bmatrix} = \mathbf{0}
+      $$
+
+       Proof 2: \( \frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \mathbf{I} \)
+      Let \( \mathbf{x} \in \mathbb{R}^N \) be the variable vector. The derivative of \( \mathbf{x} \) with respect to itself is defined as:
+
+      $$
+      \frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \begin{bmatrix} 
+      \frac{\partial x_1}{\partial x_1} & \cdots & \frac{\partial x_1}{\partial x_N} \\ 
+      \vdots & \ddots & \vdots \\ 
+      \frac{\partial x_N}{\partial x_1} & \cdots & \frac{\partial x_N}{\partial x_N} 
+      \end{bmatrix}
+      $$
+
+      The partial derivative \( \frac{\partial x_i}{\partial x_j} \) is:
+
+      $$
+      \frac{\partial x_i}{\partial x_j} = 
+      \begin{cases} 
+      1 & \text{if } i = j \\ 
+      0 & \text{if } i \neq j 
+      \end{cases}
+      $$
+
+      Substituting this into the matrix form, we get the identity matrix:
+
+      $$
+      \frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \begin{bmatrix} 
+      1 & 0 & \cdots & 0 \\ 
+      0 & 1 & \cdots & 0 \\ 
+      \vdots & \vdots & \ddots & \vdots \\ 
+      0 & 0 & \cdots & 1 
+      \end{bmatrix} = \mathbf{I}
+      $$
+
+       Final Results
+      1. For a constant vector \( \mathbf{a} \), the derivative is:
+
+      $$
+      \boxed{\frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \mathbf{0}}
+      $$
+
+      2. For the variable vector \( \mathbf{x} \), the derivative with respect to itself is:
+
+      $$
+      \boxed{\frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \mathbf{I}}
+      $$
+
+    </div>
+  </details>
+</div>
+
+-----
+
+
+### Scalar-by-Matrix Differentiation
+
+The derivative of a scalar function $ y $, with respect to a $ p \times q $ matrix $ \mathbf{X} $ of independent variables, is given (in **numerator layout notation**) by:
+
+$$
+\frac{\partial y}{\partial \mathbf{X}} = 
+\begin{bmatrix} 
+\frac{\partial y}{\partial x_{11}} & \frac{\partial y}{\partial x_{21}} & \cdots & \frac{\partial y}{\partial x_{p1}} \\ 
+\frac{\partial y}{\partial x_{12}} & \frac{\partial y}{\partial x_{22}} & \cdots & \frac{\partial y}{\partial x_{p2}} \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+\frac{\partial y}{\partial x_{1q}} & \frac{\partial y}{\partial x_{2q}} & \cdots & \frac{\partial y}{\partial x_{pq}} 
+\end{bmatrix}.
+$$
+
+### Explanation
+- $ y $ is a scalar function of the elements of the matrix $ \mathbf{X} \in \mathbb{R}^{p \times q} $.
+- Each element $ x_{ij} $ of $ \mathbf{X} $ is treated as an independent variable.
+- The derivative $ \frac{\partial y}{\partial \mathbf{X}} $ is a $ p \times q $ matrix, where the $(i, j)$-th entry is the partial derivative of $ y $ with respect to $ x_{ij} $.
+
+### Example
+If $ y = \text{tr}(\mathbf{X}) = \sum_{i=1}^p x_{ii} $, then:
+
+$$
+\frac{\partial y}{\partial \mathbf{X}} = 
+\begin{bmatrix} 
+1 & 0 & \cdots & 0 \\ 
+0 & 1 & \cdots & 0 \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+0 & 0 & \cdots & 1 
+\end{bmatrix}.
+$$
+
+This is the identity matrix because the trace depends only on the diagonal elements of $ \mathbf{X} $.
+
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$\frac{\partial (uv)}{\partial \mathbf{X}} = u \frac{\partial v}{\partial \mathbf{X}} + v \frac{\partial u}{\partial \mathbf{X}}$$
+    </summary>
+    <div style="margin-top: 10px;">
+
+      
+      Let \( u = u(\mathbf{X}) \in \mathbb{R} \) and \( v = v(\mathbf{X}) \in \mathbb{R} \) be scalar functions of the matrix \( \mathbf{X} \in \mathbb{R}^{p \times q} \).  
+      The product \( uv \) is a scalar, and its derivative with respect to \( \mathbf{X} \) is defined as:
+
+      $$
+      \frac{\partial (uv)}{\partial \mathbf{X}} = 
+      \begin{bmatrix} 
+      \frac{\partial (uv)}{\partial x_{11}} & \frac{\partial (uv)}{\partial x_{21}} & \cdots & \frac{\partial (uv)}{\partial x_{p1}} \\ 
+      \frac{\partial (uv)}{\partial x_{12}} & \frac{\partial (uv)}{\partial x_{22}} & \cdots & \frac{\partial (uv)}{\partial x_{p2}} \\ 
+      \vdots & \vdots & \ddots & \vdots \\ 
+      \frac{\partial (uv)}{\partial x_{1q}} & \frac{\partial (uv)}{\partial x_{2q}} & \cdots & \frac{\partial (uv)}{\partial x_{pq}} 
+      \end{bmatrix}.
+      $$
+
+      
+      Using the product rule for the scalar product \( uv \), the derivative of \( uv \) with respect to each element \( x_{ij} \) of \( \mathbf{X} \) is:
+
+      $$
+      \frac{\partial (uv)}{\partial x_{ij}} = u \frac{\partial v}{\partial x_{ij}} + v \frac{\partial u}{\partial x_{ij}}.
+      $$
+
+      
+
+    Using the formula,
+
+      $$
+      \frac{\partial y}{\partial \mathbf{X}} = 
+      \begin{bmatrix} 
+      \frac{\partial y}{\partial x_{11}} & \frac{\partial y}{\partial x_{21}} & \cdots & \frac{\partial y}{\partial x_{p1}} \\ 
+      \frac{\partial y}{\partial x_{12}} & \frac{\partial y}{\partial x_{22}} & \cdots & \frac{\partial y}{\partial x_{p2}} \\ 
+      \vdots & \vdots & \ddots & \vdots \\ 
+      \frac{\partial y}{\partial x_{1q}} & \frac{\partial y}{\partial x_{2q}} & \cdots & \frac{\partial y}{\partial x_{pq}} 
+      \end{bmatrix},
+      $$
+
+      we can write the derivatives \( \frac{\partial v}{\partial \mathbf{X}} \) and \( \frac{\partial u}{\partial \mathbf{X}} \) in the same form. Substituting these into the product rule gives:
+
+      $$
+      \frac{\partial (uv)}{\partial \mathbf{X}} = 
+      u 
+      \begin{bmatrix} 
+      \frac{\partial v}{\partial x_{11}} & \frac{\partial v}{\partial x_{21}} & \cdots & \frac{\partial v}{\partial x_{p1}} \\ 
+      \frac{\partial v}{\partial x_{12}} & \frac{\partial v}{\partial x_{22}} & \cdots & \frac{\partial v}{\partial x_{p2}} \\ 
+      \vdots & \vdots & \ddots & \vdots \\ 
+      \frac{\partial v}{\partial x_{1q}} & \frac{\partial v}{\partial x_{2q}} & \cdots & \frac{\partial v}{\partial x_{pq}} 
+      \end{bmatrix}
+      +
+      v 
+      \begin{bmatrix} 
+      \frac{\partial u}{\partial x_{11}} & \frac{\partial u}{\partial x_{21}} & \cdots & \frac{\partial u}{\partial x_{p1}} \\ 
+      \frac{\partial u}{\partial x_{12}} & \frac{\partial u}{\partial x_{22}} & \cdots & \frac{\partial u}{\partial x_{p2}} \\ 
+      \vdots & \vdots & \ddots & \vdots \\ 
+      \frac{\partial u}{\partial x_{1q}} & \frac{\partial u}{\partial x_{2q}} & \cdots & \frac{\partial u}{\partial x_{pq}} 
+      \end{bmatrix}.
+      $$
+
+      
+      Combining the terms, we get:
+
+     
+      $$
+      \boxed{\frac{\partial (uv)}{\partial \mathbf{X}} = u \frac{\partial v}{\partial \mathbf{X}} + v \frac{\partial u}{\partial \mathbf{X}}.}
+      $$
+
+    </div>
+  </details>
+</div>
+
+
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$\frac{\partial (\mathbf{a}^\top \mathbf{X} \mathbf{b})}{\partial \mathbf{X}} = \mathbf{b} \mathbf{a}^\top$$
+    </summary>
+    <div style="margin-top: 10px;">
+
+      
+      Let \( \mathbf{a} \in \mathbb{R}^m \) and \( \mathbf{b} \in \mathbb{R}^n \) be constant vectors, and let \( \mathbf{X} \in \mathbb{R}^{m \times n} \) be a matrix.  
+      The scalar \( \mathbf{a}^\top \mathbf{X} \mathbf{b} \) is defined as:
+
+      $$
+      \mathbf{a}^\top \mathbf{X} \mathbf{b} = \sum_{i=1}^m \sum_{j=1}^n a_i X_{ij} b_j
+      $$
+
+      We aim to compute the derivative of \( \mathbf{a}^\top \mathbf{X} \mathbf{b} \) with respect to \( \mathbf{X} \).
+
+      
+      As we know that The derivative of a scalar function \( y \) with respect to a matrix \( \mathbf{X} \) is given by:
+
+      $$
+      \frac{\partial y}{\partial \mathbf{X}} = 
+      \begin{bmatrix} 
+      \frac{\partial y}{\partial x_{11}} & \frac{\partial y}{\partial x_{21}} & \cdots & \frac{\partial y}{\partial x_{p1}} \\ 
+      \frac{\partial y}{\partial x_{12}} & \frac{\partial y}{\partial x_{22}} & \cdots & \frac{\partial y}{\partial x_{p2}} \\ 
+      \vdots & \vdots & \ddots & \vdots \\ 
+      \frac{\partial y}{\partial x_{1q}} & \frac{\partial y}{\partial x_{2q}} & \cdots & \frac{\partial y}{\partial x_{pq}} 
+      \end{bmatrix}.
+      $$
+
+      
+      The scalar \( \mathbf{a}^\top \mathbf{X} \mathbf{b} \) can be expanded as:
+
+      $$
+      \mathbf{a}^\top \mathbf{X} \mathbf{b} = \sum_{i=1}^m \sum_{j=1}^n a_i X_{ij} b_j.
+      $$
+
+      Taking the derivative with respect to \( X_{ij} \), we get:
+
+      $$
+      \frac{\partial (\mathbf{a}^\top \mathbf{X} \mathbf{b})}{\partial X_{ij}} = a_i b_j.
+      $$
+
+      
+      From above This can be written as:
+
+      $$
+      \frac{\partial (\mathbf{a}^\top \mathbf{X} \mathbf{b})}{\partial \mathbf{X}} = 
+      \begin{bmatrix} 
+      a_1 b_1 & a_2 b_1 & \cdots & a_m b_1 \\ 
+      a_1 b_2 & a_2 b_2 & \cdots & a_m b_2 \\ 
+      \vdots & \vdots & \ddots & \vdots \\ 
+      a_1 b_n & a_2 b_n & \cdots & a_m b_n 
+      \end{bmatrix}.
+      $$
+
+      
+      The matrix above is the outer product of \( \mathbf{b} \) and \( \mathbf{a} \). The outer product of two vectors \( \mathbf{b} \in \mathbb{R}^n \) and \( \mathbf{a} \in \mathbb{R}^m \) is defined as:
+
+      $$
+      \mathbf{b} \mathbf{a}^\top = 
+      \begin{bmatrix} 
+      b_1 \\ 
+      b_2 \\ 
+      \vdots \\ 
+      b_n 
+      \end{bmatrix}
+      \begin{bmatrix} 
+      a_1 & a_2 & \cdots & a_m 
+      \end{bmatrix}
+      =
+      \begin{bmatrix} 
+      b_1 a_1 & b_1 a_2 & \cdots & b_1 a_m \\ 
+      b_2 a_1 & b_2 a_2 & \cdots & b_2 a_m \\ 
+      \vdots & \vdots & \ddots & \vdots \\ 
+      b_n a_1 & b_n a_2 & \cdots & b_n a_m 
+      \end{bmatrix}.
+      $$
+
+      Thus, we conclude:
+
+      $$
+      \frac{\partial (\mathbf{a}^\top \mathbf{X} \mathbf{b})}{\partial \mathbf{X}} = \mathbf{b} \mathbf{a}^\top.
+      $$
+
+      
+      The derivative of \( \mathbf{a}^\top \mathbf{X} \mathbf{b} \) with respect to \( \mathbf{X} \) is:
+
+      $$
+      \boxed{\frac{\partial (\mathbf{a}^\top \mathbf{X} \mathbf{b})}{\partial \mathbf{X}} = \mathbf{b} \mathbf{a}^\top.}
+      $$
+
+    </div>
+  </details>
+</div>
+
+
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$\frac{\partial \operatorname{tr}(\mathbf{X})}{\partial \mathbf{X}} = \mathbf{I}$$
+    </summary>
+    <div style="margin-top: 10px;">
+
+      
+      Let \( \mathbf{X} \in \mathbb{R}^{n \times n} \) be a square matrix.  
+      The trace of \( \mathbf{X} \), denoted as \( \operatorname{tr}(\mathbf{X}) \), is defined as the sum of its diagonal elements:
+
+      $$
+      \operatorname{tr}(\mathbf{X}) = \sum_{i=1}^n X_{ii}.
+      $$
+
+     
+
+      
+      
+
+      Taking the derivative with respect to \( X_{ij} \), we get:
+
+      $$
+      \frac{\partial \operatorname{tr}(\mathbf{X})}{\partial X_{ij}} = 
+      \begin{cases} 
+      1 & \text{if } i = j, \\ 
+      0 & \text{if } i \neq j.
+      \end{cases}
+      $$
+
+       The derivative \( \frac{\partial \operatorname{tr}(\mathbf{X})}{\partial \mathbf{X}} \) is a matrix where the diagonal entries are \( 1 \) (since \( i = j \)) and the off-diagonal entries are \( 0 \) (since \( i \neq j \)). This is the identity matrix:
+
+      $$
+      \frac{\partial \operatorname{tr}(\mathbf{X})}{\partial \mathbf{X}} = 
+      \begin{bmatrix} 
+      1 & 0 & \cdots & 0 \\ 
+      0 & 1 & \cdots & 0 \\ 
+      \vdots & \vdots & \ddots & \vdots \\ 
+      0 & 0 & \cdots & 1 
+      \end{bmatrix} = \mathbf{I}.
+      $$
+
+      
+      The derivative of \( \operatorname{tr}(\mathbf{X}) \) with respect to \( \mathbf{X} \) is:
+
+      $$
+      \boxed{\frac{\partial \operatorname{tr}(\mathbf{X})}{\partial \mathbf{X}} = \mathbf{I}.}
+      $$
+
+    </div>
+  </details>
+</div>
+
+
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$\frac{\partial \operatorname{tr}(\mathbf{AX})}{\partial \mathbf{X}} = \frac{\partial \operatorname{tr}(\mathbf{XA})}{\partial \mathbf{X}} = \mathbf{A}$$
+    </summary>
+    <div style="margin-top: 10px;">
+
+      
+      Let \( \mathbf{A} \in \mathbb{R}^{n \times n} \) be a constant matrix, and \( \mathbf{X} \in \mathbb{R}^{n \times n} \) be a variable matrix.  
+      The trace of \( \mathbf{AX} \) or \( \mathbf{XA} \), denoted as \( \operatorname{tr}(\mathbf{AX}) \) or \( \operatorname{tr}(\mathbf{XA}) \), is defined as:
+
+      $$
+      \operatorname{tr}(\mathbf{AX}) = \sum_{i=1}^n \sum_{j=1}^n A_{ij} X_{ji}.
+      $$
+
+      We aim to compute the derivative of \( \operatorname{tr}(\mathbf{AX}) \) and \( \operatorname{tr}(\mathbf{XA}) \) with respect to \( \mathbf{X} \).
+
+      
+      As we know The derivative of a scalar function \( y \) with respect to a matrix \( \mathbf{X} \) is given by:
+
+      $$
+      \frac{\partial y}{\partial \mathbf{X}} = 
+      \begin{bmatrix} 
+      \frac{\partial y}{\partial x_{11}} & \frac{\partial y}{\partial x_{21}} & \cdots & \frac{\partial y}{\partial x_{n1}} \\ 
+      \frac{\partial y}{\partial x_{12}} & \frac{\partial y}{\partial x_{22}} & \cdots & \frac{\partial y}{\partial x_{n2}} \\ 
+      \vdots & \vdots & \ddots & \vdots \\ 
+      \frac{\partial y}{\partial x_{1n}} & \frac{\partial y}{\partial x_{2n}} & \cdots & \frac{\partial y}{\partial x_{nn}} 
+      \end{bmatrix}.
+      $$
+
+     
+      The trace \( \operatorname{tr}(\mathbf{AX}) \) can be expanded as:
+
+      $$
+      \operatorname{tr}(\mathbf{AX}) = \sum_{i=1}^n \sum_{j=1}^n A_{ij} X_{ji}.
+      $$
+
+      Taking the derivative with respect to \( X_{kl} \), we get:
+
+      $$
+      \frac{\partial \operatorname{tr}(\mathbf{AX})}{\partial X_{kl}} = A_{lk}.
+      $$
+
+      Similarly, for \( \operatorname{tr}(\mathbf{XA}) \), we can write:
+
+      $$
+      \operatorname{tr}(\mathbf{XA}) = \sum_{i=1}^n \sum_{j=1}^n X_{ij} A_{ji}.
+      $$
+
+      Taking the derivative with respect to \( X_{kl} \), we get:
+
+      $$
+      \frac{\partial \operatorname{tr}(\mathbf{XA})}{\partial X_{kl}} = A_{lk}.
+      $$
+
+      
+      Using the identity, the derivative \( \frac{\partial \operatorname{tr}(\mathbf{AX})}{\partial \mathbf{X}} \) is a matrix where the \((k, l)\)-th entry is \( A_{lk} \). This is simply the matrix \( \mathbf{A} \):
+
+      $$
+      \frac{\partial \operatorname{tr}(\mathbf{AX})}{\partial \mathbf{X}} = \mathbf{A}.
+      $$
+
+      Similarly, for \( \operatorname{tr}(\mathbf{XA}) \), the derivative is also:
+
+      $$
+      \frac{\partial \operatorname{tr}(\mathbf{XA})}{\partial \mathbf{X}} = \mathbf{A}.
+      $$
+
+      
+      The derivatives of \( \operatorname{tr}(\mathbf{AX}) \) and \( \operatorname{tr}(\mathbf{XA}) \) with respect to \( \mathbf{X} \) are:
+
+      $$
+      \boxed{\frac{\partial \operatorname{tr}(\mathbf{AX})}{\partial \mathbf{X}} = \frac{\partial \operatorname{tr}(\mathbf{XA})}{\partial \mathbf{X}} = \mathbf{A}.}
+      $$
+
+    </div>
+  </details>
+</div>
+
