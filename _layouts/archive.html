@@ -37,7 +37,7 @@ layout: default
         </div>
         <div class="meta" style="font-size: 0.9em; color: #777; margin-bottom: 15px;">
           <span>Written on {{ post.date | date: "%B %e, %Y" }}</span> | 
-          <span>Reading time: {{ post.content | number_of_words | divided_by: 200 | ceil }} min read</span>
+          <span>Reading time: {{ post.content | number_of_words | divided_by: 150 | ceil }} min read</span>
         </div>
         <p style="font-size: 0.95em; color: #555; margin-bottom: 15px;">
             {{ post.excerpt | strip_html | truncate: 230 }}

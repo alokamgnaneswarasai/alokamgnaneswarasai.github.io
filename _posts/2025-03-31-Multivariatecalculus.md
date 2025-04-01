@@ -217,8 +217,86 @@ $$
     \end{bmatrix} $$
 
 ---------
+ **There are two layout notations , some authors prefer numerator layout and some authors prefer denominator layout. In this post we are using numerator layout**
 
-Let $A$, $x$, and $f(x)$ be represented as follows:
+## Numerator-Layout Notation
+
+- In numerator-layout notation, the gradient aligns with the numerator’s structure:
+  - For scalar $y$ and vector $x \in \mathbb{R}^n$:
+
+    $$ \frac{\partial y}{\partial x} = \begin{bmatrix} \frac{\partial y}{\partial x_1} & \frac{\partial y}{\partial x_2} & \cdots & \frac{\partial y}{\partial x_n} \end{bmatrix} \in \mathbb{R}^{1 \times n} $$
+
+  - For vector $y \in \mathbb{R}^m$ and scalar $x$:
+    
+    $$ \frac{\partial y}{\partial x} = \begin{bmatrix} \frac{\partial y_1}{\partial x} \\ \frac{\partial y_2}{\partial x} \\ \vdots \\ \frac{\partial y_m}{\partial x} \end{bmatrix} \in \mathbb{R}^{m \times 1} $$
+
+  - For vector $y \in \mathbb{R}^m$ and vector $x \in \mathbb{R}^n$:
+    
+    $$ \frac{\partial y}{\partial x} = \begin{bmatrix} 
+    \frac{\partial y_1}{\partial x_1} & \frac{\partial y_1}{\partial x_2} & \cdots & \frac{\partial y_1}{\partial x_n} \\ 
+    \frac{\partial y_2}{\partial x_1} & \frac{\partial y_2}{\partial x_2} & \cdots & \frac{\partial y_2}{\partial x_n} \\ 
+    \vdots & \vdots & \ddots & \vdots \\ 
+    \frac{\partial y_m}{\partial x_1} & \frac{\partial y_m}{\partial x_2} & \cdots & \frac{\partial y_m}{\partial x_n} 
+    \end{bmatrix} \in \mathbb{R}^{m \times n} $$
+
+  - For scalar $y$ and matrix $X \in \mathbb{R}^{p \times q}$:
+   
+    $$ \frac{\partial y}{\partial X} = \begin{bmatrix} 
+    \frac{\partial y}{\partial x_{11}} & \frac{\partial y}{\partial x_{21}} & \cdots & \frac{\partial y}{\partial x_{p1}} \\ 
+    \frac{\partial y}{\partial x_{12}} & \frac{\partial y}{\partial x_{22}} & \cdots & \frac{\partial y}{\partial x_{p2}} \\ 
+    \vdots & \vdots & \ddots & \vdots \\ 
+    \frac{\partial y}{\partial x_{1q}} & \frac{\partial y}{\partial x_{2q}} & \cdots & \frac{\partial y}{\partial x_{pq}} 
+    \end{bmatrix} \in \mathbb{R}^{p \times q} $$
+
+  - For matrix $Y \in \mathbb{R}^{m \times n}$ and scalar $x$:
+    
+    $$ \frac{\partial Y}{\partial x} = \begin{bmatrix} 
+    \frac{\partial y_{11}}{\partial x} & \frac{\partial y_{12}}{\partial x} & \cdots & \frac{\partial y_{1n}}{\partial x} \\ 
+    \frac{\partial y_{21}}{\partial x} & \frac{\partial y_{22}}{\partial x} & \cdots & \frac{\partial y_{2n}}{\partial x} \\ 
+    \vdots & \vdots & \ddots & \vdots \\ 
+    \frac{\partial y_{m1}}{\partial x} & \frac{\partial y_{m2}}{\partial x} & \cdots & \frac{\partial y_{mn}}{\partial x} 
+    \end{bmatrix} \in \mathbb{R}^{m \times n} $$
+
+  - Differential $dX$ for $X \in \mathbb{R}^{m \times n}$:
+    
+    $$ dX = \begin{bmatrix} 
+    dx_{11} & dx_{12} & \cdots & dx_{1n} \\ 
+    dx_{21} & dx_{22} & \cdots & dx_{2n} \\ 
+    \vdots & \vdots & \ddots & \vdots \\ 
+    dx_{m1} & dx_{m2} & \cdots & dx_{mn} 
+    \end{bmatrix} \in \mathbb{R}^{m \times n} $$
+
+## Denominator-Layout Notation
+
+- In denominator-layout notation, the gradient aligns with the denominator’s structure:
+  - For scalar $y$ and vector $x \in \mathbb{R}^n$:
+    
+    $$ \frac{\partial y}{\partial x} = \begin{bmatrix} \frac{\partial y}{\partial x_1} \\ \frac{\partial y}{\partial x_2} \\ \vdots \\ \frac{\partial y}{\partial x_n} \end{bmatrix} \in \mathbb{R}^{n \times 1} $$
+
+  - For vector $y \in \mathbb{R}^m$ and scalar $x$:
+  
+    $$ \frac{\partial y}{\partial x} = \begin{bmatrix} \frac{\partial y_1}{\partial x} & \frac{\partial y_2}{\partial x} & \cdots & \frac{\partial y_m}{\partial x} \end{bmatrix} \in \mathbb{R}^{1 \times m} $$
+
+  - For vector $y \in \mathbb{R}^m$ and vector $x \in \mathbb{R}^n$:
+    
+    $$ \frac{\partial y}{\partial x} = \begin{bmatrix} 
+    \frac{\partial y_1}{\partial x_1} & \frac{\partial y_2}{\partial x_1} & \cdots & \frac{\partial y_m}{\partial x_1} \\ 
+    \frac{\partial y_1}{\partial x_2} & \frac{\partial y_2}{\partial x_2} & \cdots & \frac{\partial y_m}{\partial x_2} \\ 
+    \vdots & \vdots & \ddots & \vdots \\ 
+    \frac{\partial y_1}{\partial x_n} & \frac{\partial y_2}{\partial x_n} & \cdots & \frac{\partial y_m}{\partial x_n} 
+    \end{bmatrix} \in \mathbb{R}^{n \times m} $$
+
+  - For scalar $y$ and matrix $X \in \mathbb{R}^{p \times q}$:
+   
+    $$ \frac{\partial y}{\partial X} = \begin{bmatrix} 
+    \frac{\partial y}{\partial x_{11}} & \frac{\partial y}{\partial x_{12}} & \cdots & \frac{\partial y}{\partial x_{1q}} \\ 
+    \frac{\partial y}{\partial x_{21}} & \frac{\partial y}{\partial x_{22}} & \cdots & \frac{\partial y}{\partial x_{2q}} \\ 
+    \vdots & \vdots & \ddots & \vdots \\ 
+    \frac{\partial y}{\partial x_{p1}} & \frac{\partial y}{\partial x_{p2}} & \cdots & \frac{\partial y}{\partial x_{pq}} 
+    \end{bmatrix} \in \mathbb{R}^{p \times q} $$
+
+
+<!-- Let $A$, $x$, and $f(x)$ be represented as follows:
 
 1. **Matrix $A$:**
    
@@ -256,9 +334,19 @@ Let $A$, $x$, and $f(x)$ be represented as follows:
    \vdots \\ 
    A_{M1} x_1 + A_{M2} x_2 + \cdots + A_{MN} x_N 
    \end{bmatrix}
-   $$
+   $$ -->
 
 ---
+## Vecor by Vector
+
+For vector $y \in \mathbb{R}^m$ and vector $x \in \mathbb{R}^n$:
+    
+$$ \frac{\partial y}{\partial x} = \begin{bmatrix} 
+\frac{\partial y_1}{\partial x_1} & \frac{\partial y_1}{\partial x_2} & \cdots & \frac{\partial y_1}{\partial x_n} \\ 
+\frac{\partial y_2}{\partial x_1} & \frac{\partial y_2}{\partial x_2} & \cdots & \frac{\partial y_2}{\partial x_n} \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+\frac{\partial y_m}{\partial x_1} & \frac{\partial y_m}{\partial x_2} & \cdots & \frac{\partial y_m}{\partial x_n} 
+\end{bmatrix} \in \mathbb{R}^{m \times n} $$
 
 <div id="proof-derivative-Ax" class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
   <details>
@@ -322,7 +410,156 @@ Let $A$, $x$, and $f(x)$ be represented as follows:
   </details>
 </div>
 
+
+
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$\frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = a \frac{\partial \mathbf{u}}{\partial \mathbf{x}}$$
+    </summary>
+    <div style="margin-top: 10px;">
+
+      Let \( a \) be a constant scalar, and \( \mathbf{u} = \mathbf{u}(\mathbf{x}) \in \mathbb{R}^N \) be a vector-valued function of \( \mathbf{x} \in \mathbb{R}^M \).  
+      The function \( f(\mathbf{x}) = a \mathbf{u}(\mathbf{x}) \) scales the vector \( \mathbf{u} \) by the constant \( a \).
+
+      
+      The derivative of \( f(\mathbf{x}) = a \mathbf{u}(\mathbf{x}) \) with respect to \( \mathbf{x} \) is defined as:
+
+      $$
+      \frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = \begin{bmatrix} 
+      \frac{\partial (a u_1)}{\partial x_1} & \cdots & \frac{\partial (a u_1)}{\partial x_M} \\ 
+      \vdots & \ddots & \vdots \\ 
+      \frac{\partial (a u_N)}{\partial x_1} & \cdots & \frac{\partial (a u_N)}{\partial x_M} 
+      \end{bmatrix}
+      $$
+
+      
+      Since \( a \) is constant, it can be factored out of the derivative:
+
+      $$
+      \frac{\partial (a u_i)}{\partial x_j} = a \frac{\partial u_i}{\partial x_j}
+      $$
+
+      Substituting this into the matrix form:
+
+      $$
+      \frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = a \begin{bmatrix} 
+      \frac{\partial u_1}{\partial x_1} & \cdots & \frac{\partial u_1}{\partial x_M} \\ 
+      \vdots & \ddots & \vdots \\ 
+      \frac{\partial u_N}{\partial x_1} & \cdots & \frac{\partial u_N}{\partial x_M} 
+      \end{bmatrix}
+      $$
+
+      
+      we can observe  that the matrix of partial derivatives is \( \frac{\partial \mathbf{u}}{\partial \mathbf{x}} \), we have:
+
+      $$
+      \frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = a \frac{\partial \mathbf{u}}{\partial \mathbf{x}}
+      $$
+
+       Final Result
+      The derivative of \( a \mathbf{u} \) with respect to \( \mathbf{x} \) is:
+
+      $$
+      \boxed{\frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = a \frac{\partial \mathbf{u}}{\partial \mathbf{x}}}
+      $$
+
+    </div>
+  </details>
+</div>
+
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$\frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \mathbf{0}, \quad \frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \mathbf{I}$$
+    </summary>
+    <div style="margin-top: 10px;">
+
+       Proof 1: \( \frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \mathbf{0} \)
+      Let \( \mathbf{a} \in \mathbb{R}^N \) be a constant vector, and \( \mathbf{x} \in \mathbb{R}^M \) be the variable vector.  
+      The derivative of \( \mathbf{a} \) with respect to \( \mathbf{x} \) is defined as:
+
+      $$
+      \frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \begin{bmatrix} 
+      \frac{\partial a_1}{\partial x_1} & \cdots & \frac{\partial a_1}{\partial x_M} \\ 
+      \vdots & \ddots & \vdots \\ 
+      \frac{\partial a_N}{\partial x_1} & \cdots & \frac{\partial a_N}{\partial x_M} 
+      \end{bmatrix}
+      $$
+
+      Since \( \mathbf{a} \) is constant, each component \( a_i \) does not depend on \( \mathbf{x} \). Therefore, all partial derivatives are zero:
+
+      $$
+      \frac{\partial a_i}{\partial x_j} = 0 \quad \forall i, j
+      $$
+
+      Substituting this into the matrix form:
+
+      $$
+      \frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \begin{bmatrix} 
+      0 & \cdots & 0 \\ 
+      \vdots & \ddots & \vdots \\ 
+      0 & \cdots & 0 
+      \end{bmatrix} = \mathbf{0}
+      $$
+
+       Proof 2: \( \frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \mathbf{I} \)
+      Let \( \mathbf{x} \in \mathbb{R}^N \) be the variable vector. The derivative of \( \mathbf{x} \) with respect to itself is defined as:
+
+      $$
+      \frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \begin{bmatrix} 
+      \frac{\partial x_1}{\partial x_1} & \cdots & \frac{\partial x_1}{\partial x_N} \\ 
+      \vdots & \ddots & \vdots \\ 
+      \frac{\partial x_N}{\partial x_1} & \cdots & \frac{\partial x_N}{\partial x_N} 
+      \end{bmatrix}
+      $$
+
+      The partial derivative \( \frac{\partial x_i}{\partial x_j} \) is:
+
+      $$
+      \frac{\partial x_i}{\partial x_j} = 
+      \begin{cases} 
+      1 & \text{if } i = j \\ 
+      0 & \text{if } i \neq j 
+      \end{cases}
+      $$
+
+      Substituting this into the matrix form, we get the identity matrix:
+
+      $$
+      \frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \begin{bmatrix} 
+      1 & 0 & \cdots & 0 \\ 
+      0 & 1 & \cdots & 0 \\ 
+      \vdots & \vdots & \ddots & \vdots \\ 
+      0 & 0 & \cdots & 1 
+      \end{bmatrix} = \mathbf{I}
+      $$
+
+       Final Results
+      1. For a constant vector \( \mathbf{a} \), the derivative is:
+
+      $$
+      \boxed{\frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \mathbf{0}}
+      $$
+
+      2. For the variable vector \( \mathbf{x} \), the derivative with respect to itself is:
+
+      $$
+      \boxed{\frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \mathbf{I}}
+      $$
+
+    </div>
+  </details>
+</div>
+
 ---
+
+## Scalar by vector 
+
+For scalar $y$ and vector $x \in \mathbb{R}^n$:
+
+$$ \frac{\partial y}{\partial x} = \begin{bmatrix} \frac{\partial y}{\partial x_1} & \frac{\partial y}{\partial x_2} & \cdots & \frac{\partial y}{\partial x_n} \end{bmatrix} \in \mathbb{R}^{1 \times n} $$
+
 
 <div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
   <details>
@@ -541,150 +778,10 @@ Let $A$, $x$, and $f(x)$ be represented as follows:
   </details>
 </div>
 
-<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
-  <details>
-    <summary style="cursor: pointer; font-weight: bold; color: #333;">
-      $$\frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = a \frac{\partial \mathbf{u}}{\partial \mathbf{x}}$$
-    </summary>
-    <div style="margin-top: 10px;">
-
-      Let \( a \) be a constant scalar, and \( \mathbf{u} = \mathbf{u}(\mathbf{x}) \in \mathbb{R}^N \) be a vector-valued function of \( \mathbf{x} \in \mathbb{R}^M \).  
-      The function \( f(\mathbf{x}) = a \mathbf{u}(\mathbf{x}) \) scales the vector \( \mathbf{u} \) by the constant \( a \).
-
-      
-      The derivative of \( f(\mathbf{x}) = a \mathbf{u}(\mathbf{x}) \) with respect to \( \mathbf{x} \) is defined as:
-
-      $$
-      \frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = \begin{bmatrix} 
-      \frac{\partial (a u_1)}{\partial x_1} & \cdots & \frac{\partial (a u_1)}{\partial x_M} \\ 
-      \vdots & \ddots & \vdots \\ 
-      \frac{\partial (a u_N)}{\partial x_1} & \cdots & \frac{\partial (a u_N)}{\partial x_M} 
-      \end{bmatrix}
-      $$
-
-      
-      Since \( a \) is constant, it can be factored out of the derivative:
-
-      $$
-      \frac{\partial (a u_i)}{\partial x_j} = a \frac{\partial u_i}{\partial x_j}
-      $$
-
-      Substituting this into the matrix form:
-
-      $$
-      \frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = a \begin{bmatrix} 
-      \frac{\partial u_1}{\partial x_1} & \cdots & \frac{\partial u_1}{\partial x_M} \\ 
-      \vdots & \ddots & \vdots \\ 
-      \frac{\partial u_N}{\partial x_1} & \cdots & \frac{\partial u_N}{\partial x_M} 
-      \end{bmatrix}
-      $$
-
-      
-      we can observe  that the matrix of partial derivatives is \( \frac{\partial \mathbf{u}}{\partial \mathbf{x}} \), we have:
-
-      $$
-      \frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = a \frac{\partial \mathbf{u}}{\partial \mathbf{x}}
-      $$
-
-       Final Result
-      The derivative of \( a \mathbf{u} \) with respect to \( \mathbf{x} \) is:
-
-      $$
-      \boxed{\frac{\partial (a \mathbf{u})}{\partial \mathbf{x}} = a \frac{\partial \mathbf{u}}{\partial \mathbf{x}}}
-      $$
-
-    </div>
-  </details>
-</div>
-
-<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
-  <details>
-    <summary style="cursor: pointer; font-weight: bold; color: #333;">
-      $$\frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \mathbf{0}, \quad \frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \mathbf{I}$$
-    </summary>
-    <div style="margin-top: 10px;">
-
-       Proof 1: \( \frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \mathbf{0} \)
-      Let \( \mathbf{a} \in \mathbb{R}^N \) be a constant vector, and \( \mathbf{x} \in \mathbb{R}^M \) be the variable vector.  
-      The derivative of \( \mathbf{a} \) with respect to \( \mathbf{x} \) is defined as:
-
-      $$
-      \frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \begin{bmatrix} 
-      \frac{\partial a_1}{\partial x_1} & \cdots & \frac{\partial a_1}{\partial x_M} \\ 
-      \vdots & \ddots & \vdots \\ 
-      \frac{\partial a_N}{\partial x_1} & \cdots & \frac{\partial a_N}{\partial x_M} 
-      \end{bmatrix}
-      $$
-
-      Since \( \mathbf{a} \) is constant, each component \( a_i \) does not depend on \( \mathbf{x} \). Therefore, all partial derivatives are zero:
-
-      $$
-      \frac{\partial a_i}{\partial x_j} = 0 \quad \forall i, j
-      $$
-
-      Substituting this into the matrix form:
-
-      $$
-      \frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \begin{bmatrix} 
-      0 & \cdots & 0 \\ 
-      \vdots & \ddots & \vdots \\ 
-      0 & \cdots & 0 
-      \end{bmatrix} = \mathbf{0}
-      $$
-
-       Proof 2: \( \frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \mathbf{I} \)
-      Let \( \mathbf{x} \in \mathbb{R}^N \) be the variable vector. The derivative of \( \mathbf{x} \) with respect to itself is defined as:
-
-      $$
-      \frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \begin{bmatrix} 
-      \frac{\partial x_1}{\partial x_1} & \cdots & \frac{\partial x_1}{\partial x_N} \\ 
-      \vdots & \ddots & \vdots \\ 
-      \frac{\partial x_N}{\partial x_1} & \cdots & \frac{\partial x_N}{\partial x_N} 
-      \end{bmatrix}
-      $$
-
-      The partial derivative \( \frac{\partial x_i}{\partial x_j} \) is:
-
-      $$
-      \frac{\partial x_i}{\partial x_j} = 
-      \begin{cases} 
-      1 & \text{if } i = j \\ 
-      0 & \text{if } i \neq j 
-      \end{cases}
-      $$
-
-      Substituting this into the matrix form, we get the identity matrix:
-
-      $$
-      \frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \begin{bmatrix} 
-      1 & 0 & \cdots & 0 \\ 
-      0 & 1 & \cdots & 0 \\ 
-      \vdots & \vdots & \ddots & \vdots \\ 
-      0 & 0 & \cdots & 1 
-      \end{bmatrix} = \mathbf{I}
-      $$
-
-       Final Results
-      1. For a constant vector \( \mathbf{a} \), the derivative is:
-
-      $$
-      \boxed{\frac{\partial \mathbf{a}}{\partial \mathbf{x}} = \mathbf{0}}
-      $$
-
-      2. For the variable vector \( \mathbf{x} \), the derivative with respect to itself is:
-
-      $$
-      \boxed{\frac{\partial \mathbf{x}}{\partial \mathbf{x}} = \mathbf{I}}
-      $$
-
-    </div>
-  </details>
-</div>
-
 -----
 
 
-### Scalar-by-Matrix Differentiation
+## Scalar-by-Matrix Differentiation
 
 The derivative of a scalar function $ y $, with respect to a $ p \times q $ matrix $ \mathbf{X} $ of independent variables, is given (in **numerator layout notation**) by:
 
@@ -1024,3 +1121,188 @@ This is the identity matrix because the trace depends only on the diagonal eleme
   </details>
 </div>
 
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$\frac{\partial \operatorname{tr}(\mathbf{X}^\top \mathbf{A} \mathbf{X})}{\partial \mathbf{X}} = \mathbf{X}^\top (\mathbf{A} + \mathbf{A}^\top)$$
+    </summary>
+    <div style="margin-top: 10px;">
+
+      
+      Let \( \mathbf{A} \in \mathbb{R}^{n \times n} \) be a constant matrix (not a function of \( \mathbf{X} \)), and \( \mathbf{X} \in \mathbb{R}^{n \times n} \) be a variable matrix.  
+
+      The trace of \( \mathbf{X}^\top \mathbf{A} \mathbf{X} \), denoted as \( \operatorname{tr}(\mathbf{X}^\top \mathbf{A} \mathbf{X}) \), is defined as:
+
+      $$
+      \operatorname{tr}(\mathbf{X}^\top \mathbf{A} \mathbf{X}) = \sum_{i=1}^n \sum_{j=1}^n \sum_{k=1}^n X_{ki} A_{kj} X_{ji}.
+      $$
+
+      We aim to compute the derivative of \( \operatorname{tr}(\mathbf{X}^\top \mathbf{A} \mathbf{X}) \) with respect to \( \mathbf{X} \) using the numerator layout convention, where the derivative matrix’s \( (p, q) \)-th entry is the partial derivative with respect to \( X_{pq} \).
+
+      
+      In numerator layout, the derivative of a scalar function \( y \) with respect to a matrix \( \mathbf{X} \) is a matrix of the same size as \( \mathbf{X} \), defined as:
+
+      $$
+      \frac{\partial y}{\partial \mathbf{X}} = 
+      \begin{bmatrix} 
+      \frac{\partial y}{\partial X_{11}} & \frac{\partial y}{\partial X_{21}} & \cdots & \frac{\partial y}{\partial X_{n1}} \\ 
+      \frac{\partial y}{\partial X_{12}} & \frac{\partial y}{\partial X_{22}} & \cdots & \frac{\partial y}{\partial X_{n2}} \\ 
+      \vdots & \vdots & \ddots & \vdots \\ 
+      \frac{\partial y}{\partial X_{1n}} & \frac{\partial y}{\partial X_{2n}} & \cdots & \frac{\partial y}{\partial X_{nn}} 
+      \end{bmatrix}.
+      $$
+
+      
+      The trace is:
+
+      $$
+      \operatorname{tr}(\mathbf{X}^\top \mathbf{A} \mathbf{X}) = \sum_{i=1}^n \sum_{j=1}^n \sum_{k=1}^n X_{ki} A_{kj} X_{ji}.
+      $$
+
+      Compute the partial derivative with respect to \( X_{pq} \). Since \( X_{pq} \) appears in two positions (\( X_{ki} \) and \( X_{ji} \)), 
+      $$  $$
+      we calculate both contributions:
+      $$  $$
+      a) Contribution from \( X_{ki} \): Set \( k = p \), \( i = q \):
+        $$
+        \frac{\partial}{\partial X_{pq}} \sum_{i=1}^n \sum_{k=1}^n \sum_{j=1}^n X_{ki} A_{kj} X_{ji} = \sum_{j=1}^n A_{pj} X_{jq}.
+        $$
+        (When \( k = p \), \( i = q \), the term \( X_{pq} A_{pj} X_{jq} \) differentiates to \( A_{pj} X_{jq} \).)
+         
+         $$ $$
+      b)Contribution from \( X_{ji} \): Set \( j = p \), \( i = q \):
+        $$
+        \frac{\partial}{\partial X_{pq}} \sum_{i=1}^n \sum_{k=1}^n \sum_{j=1}^n X_{ki} A_{kj} X_{ji} = \sum_{k=1}^n X_{kq} A_{kp}.
+        $$
+        (When \( j = p \), \( i = q \), the term \( X_{kq} A_{kp} X_{qp} \) differentiates to \( X_{kq} A_{kp} \).)
+
+      Total partial derivative:
+      $$
+      \frac{\partial \operatorname{tr}(\mathbf{X}^\top \mathbf{A} \mathbf{X})}{\partial X_{pq}} = \sum_{j=1}^n A_{pj} X_{jq} + \sum_{k=1}^n X_{kq} A_{kp}.
+      $$
+
+      
+      The derivative matrix has entries:
+      $$
+      \left( \frac{\partial \operatorname{tr}(\mathbf{X}^\top \mathbf{A} \mathbf{X})}{\partial \mathbf{X}} \right)_{pq} = \sum_{j=1}^n A_{pj} X_{jq} + \sum_{k=1}^n X_{kq} A_{kp}.
+      $$
+      Rewrite using index substitution (let \( m \) replace \( j \) and \( k \)):
+      $$ \sum_{j=1}^n A_{pj} X_{jq} = \sum_{m=1}^n A_{pm} X_{mq} $$,
+      $$ \sum_{k=1}^n X_{kq} A_{kp} = \sum_{m=1}^n X_{mq} A_{mp} $$.
+
+      
+
+      Combine:
+      $$
+      \frac{\partial \operatorname{tr}(\mathbf{X}^\top \mathbf{A} \mathbf{X})}{\partial X_{pq}} = \sum_{m=1}^n X_{mp} A_{mq} + \sum_{m=1}^n X_{mp} A_{qm} = \sum_{m=1}^n X_{mp} (A_{mq} + A_{qm}).
+      $$
+      This is the \( (p, q) \)-th entry of \( \mathbf{X}^\top (\mathbf{A} + \mathbf{A}^\top) \), since:
+      $$
+      [\mathbf{X}^\top (\mathbf{A} + \mathbf{A}^\top)]_{pq} = \sum_{m=1}^n X_{mp} (A_{mq} + A_{qm}).
+      $$
+
+      Thus:
+      $$
+      \frac{\partial \operatorname{tr}(\mathbf{X}^\top \mathbf{A} \mathbf{X})}{\partial \mathbf{X}} = \mathbf{X}^\top (\mathbf{A} + \mathbf{A}^\top).
+      $$
+
+      
+      
+      The derivative of \( \operatorname{tr}(\mathbf{X}^\top \mathbf{A} \mathbf{X}) \) with respect to \( \mathbf{X} \) in numerator layout is:
+
+      $$
+      \boxed{\frac{\partial \operatorname{tr}(\mathbf{X}^\top \mathbf{A} \mathbf{X})}{\partial \mathbf{X}} = \mathbf{X}^\top (\mathbf{A} + \mathbf{A}^\top)}
+      $$
+
+    </div>
+  </details>
+</div>
+
+
+
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$\operatorname{tr}(\mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_N) = \operatorname{tr}(\mathbf{A}_N \mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_{N-1}) = \cdots$$
+    </summary>
+    <div style="margin-top: 10px;">
+
+      
+      Let \( \mathbf{A}_1, \mathbf{A}_2, \dots, \mathbf{A}_N \) be matrices of compatible dimensions such that their product \( \mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_N \) is square.  
+      The trace of the product \( \operatorname{tr}(\mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_N) \) satisfies the **cyclic property**:
+
+      $$
+      \operatorname{tr}(\mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_N) = \operatorname{tr}(\mathbf{A}_N \mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_{N-1}) = \cdots.
+      $$
+
+      
+      The trace of a square matrix \( \mathbf{M} \in \mathbb{R}^{n \times n} \) is defined as the sum of its diagonal elements:
+
+      $$
+      \operatorname{tr}(\mathbf{M}) = \sum_{i=1}^n M_{ii}.
+      $$
+
+      For the product \( \mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_N \), the \((i, i)\)-th diagonal entry is:
+
+      $$
+      (\mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_N)_{ii} = \sum_{j_1, j_2, \dots, j_{N-1}} (\mathbf{A}_1)_{ij_1} (\mathbf{A}_2)_{j_1 j_2} \cdots (\mathbf{A}_N)_{j_{N-1} i}.
+      $$
+
+      Therefore, the trace of \( \mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_N \) is:
+
+      $$
+      \operatorname{tr}(\mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_N) = \sum_{i=1}^n \sum_{j_1, j_2, \dots, j_{N-1}} (\mathbf{A}_1)_{ij_1} (\mathbf{A}_2)_{j_1 j_2} \cdots (\mathbf{A}_N)_{j_{N-1} i}.
+      $$
+
+      
+      Now consider a cyclic permutation of the matrices, such as \( \operatorname{tr}(\mathbf{A}_N \mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_{N-1}) \). The \((i, i)\)-th diagonal entry of \( \mathbf{A}_N \mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_{N-1} \) is:
+
+      $$
+      (\mathbf{A}_N \mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_{N-1})_{ii} = \sum_{j_1, j_2, \dots, j_{N-1}} (\mathbf{A}_N)_{ij_{N-1}} (\mathbf{A}_1)_{j_{N-1} j_1} (\mathbf{A}_2)_{j_1 j_2} \cdots (\mathbf{A}_{N-1})_{j_{N-2} i}.
+      $$
+
+      The trace of \( \mathbf{A}_N \mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_{N-1} \) is:
+
+      $$
+      \operatorname{tr}(\mathbf{A}_N \mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_{N-1}) = \sum_{i=1}^n \sum_{j_1, j_2, \dots, j_{N-1}} (\mathbf{A}_N)_{ij_{N-1}} (\mathbf{A}_1)_{j_{N-1} j_1} (\mathbf{A}_2)_{j_1 j_2} \cdots (\mathbf{A}_{N-1})_{j_{N-2} i}.
+      $$
+
+      By reordering the summation indices \( i, j_1, j_2, \dots, j_{N-1} \), we see that:
+
+      $$
+      \operatorname{tr}(\mathbf{A}_N \mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_{N-1}) = \operatorname{tr}(\mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_N).
+      $$
+
+      
+      This argument can be repeated for any cyclic permutation of the matrices \( \mathbf{A}_1, \mathbf{A}_2, \dots, \mathbf{A}_N \). Thus, the trace is invariant under cyclic permutations:
+
+      $$
+      \operatorname{tr}(\mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_N) = \operatorname{tr}(\mathbf{A}_N \mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_{N-1}) = \cdots.
+      $$
+
+      
+      The trace of a product of matrices is invariant under cyclic permutations:
+
+      $$
+      \boxed{\operatorname{tr}(\mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_N) = \operatorname{tr}(\mathbf{A}_N \mathbf{A}_1 \mathbf{A}_2 \cdots \mathbf{A}_{N-1}) = \cdots.}
+      $$
+
+    </div>
+  </details>
+</div>
+
+
+<div class="equation-box" style="border: 1px solid #ddd; border-radius: 5px; padding: 5px; background-color: #f9f9f9; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
+  <details>
+    <summary style="cursor: pointer; font-weight: bold; color: #333;">
+      $$\frac{\partial \operatorname{tr}(\mathbf{BAX})}{\partial \mathbf{X}} = \mathbf{BA}$$
+    </summary>
+    <div style="margin-top: 10px;">
+
+      
+    </div>
+  </details>
+</div>
+
+
+ You can refer to this [ wikipedia article](https://en.wikipedia.org/wiki/Matrix_calculus) for more details and identities.
